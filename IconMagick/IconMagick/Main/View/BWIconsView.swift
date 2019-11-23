@@ -8,15 +8,22 @@
 
 import Cocoa
 
+// 图标视图Tag值
+let IconImageViewTag = 100
+
+/// 图标视图的宽高
+let IconImageViewW: CGFloat = 84.0
+
+
 class BWIconsView: NSView {
     
-//    var icons: [BWIcon]? {
-//        didSet {
-//            guard let icons = icons else { return }
-//
-//            setupUI(with: icons)
-//        }
-//    }
+    var icons: [BWIcon]? {
+        didSet {
+            guard let icons = icons else { return }
+
+            addIconImageViews(with: icons)
+        }
+    }
     
 
     override func draw(_ dirtyRect: NSRect) {
@@ -28,11 +35,13 @@ class BWIconsView: NSView {
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         
+        setupUI()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
+        setupUI()
     }
 }
 
@@ -41,26 +50,64 @@ class BWIconsView: NSView {
 
 extension BWIconsView {
     
-    func setupUI(with icons: [BWIcon]) {
-//        for (index, icon) in icons.reversed().enumerated() {
-//            print("icon info: \(index) - \(icon.size) \(icon.scale)")
-//
-//            let iconImageView = NSImageView(frame: NSRect(x: 0, y: (index * 3) + (80 * index), width: 80, height: 80))
-//            iconImageView.wantsLayer = true
-//            iconImageView.layer?.backgroundColor = NSColor.green.cgColor
-//            addSubview(iconImageView)
-//        }
+    private func setupUI() {
+//        wantsLayer = true
+//        layer?.backgroundColor = NSColor.gray.cgColor
     }
     
-    func showIcons(with icons: [BWIcon]) {
-        for (index, icon) in icons.reversed().enumerated() {
-            print("icon info: \(index) - \(icon.size) \(icon.scale)")
+    /// 添加图标视图
+    /// - Parameter icons: 图标数组
+    private func addIconImageViews(with icons: [BWIcon]) {
+        // 计算行数,列数
+//        let count = icons.count
+        let column = 5 // 列数
+//        var row = 0 // 行数
+//        if count % column == 0 {
+//            row = count / column
+//        } else {
+//            row = count / column + 1
+//        }
+        
+        let space_vertical: CGFloat = 18 // 竖直间距
+        let space_horizontal: CGFloat = 5 // 水平间距
+        for (i, icon) in icons.enumerated() {
+            let x = CGFloat(i % column) * (IconImageViewW + space_horizontal)
+            let y = CGFloat(i / column) * (IconImageViewW + space_vertical) + space_vertical
             
-            let iconImageView = NSImageView(frame: NSRect(x: 0, y: (index * 3) + (80 * index), width: 80, height: 80))
+            let iconImageView = NSImageView(frame: NSRect(x: x, y: y, width: IconImageViewW, height: IconImageViewW))
             iconImageView.wantsLayer = true
-            iconImageView.layer?.backgroundColor = NSColor.green.cgColor
-            iconImageView.image = icon.image
+            iconImageView.layer?.backgroundColor = RGBColor(52, 53, 53).cgColor
+            iconImageView.tag = IconImageViewTag + i
             addSubview(iconImageView)
+            
+            let sizeLabelH: CGFloat = 14
+            let sizeLabel = NSText(frame: NSRect(x: x, y: iconImageView.frame.minY - sizeLabelH - 2, width: IconImageViewW, height: sizeLabelH))
+            sizeLabel.isEditable = false
+            sizeLabel.textColor = NSColor.white
+            sizeLabel.alignment = .center
+            sizeLabel.backgroundColor = NSColor.clear
+            addSubview(sizeLabel)
+
+            let size = Int(icon.size)
+            let scale = Int(icon.scale)
+            if scale == 1 {
+                sizeLabel.string = "\(size)x\(size)"
+            } else {
+                sizeLabel.string = "\(size)x\(size)@\(scale)x"
+            }
+        }
+    }
+    
+    /// 显示图标
+    /// - Parameter icons: 图标数组
+    func showIcons(with icons: [BWIcon]?) {
+        guard let icons = icons else { return }
+        
+        for (i, icon) in icons.enumerated() {
+            guard let iconImageView = viewWithTag(IconImageViewTag + i) as? NSImageView else {
+                return
+            }
+            iconImageView.image = icon.image
         }
     }
 }

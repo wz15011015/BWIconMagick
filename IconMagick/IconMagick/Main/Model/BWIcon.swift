@@ -60,6 +60,8 @@ class BWIcon {
         self.system_version = system_version
     }
     
+    /// 根据模板图标生成图标
+    /// - Parameter templateIcon: 模板图标
     func generateIcon(with templateIcon: NSImage) {
         let size = NSSize(width: size_px, height: size_px)
         image = resizeImage(sourceImage: templateIcon, to: size)

@@ -15,6 +15,12 @@ class ViewController: NSViewController {
     @IBOutlet var iPadIconView: BWIconsView!
     @IBOutlet var MacIconView: BWIconsView!
     
+    @IBOutlet var generateButton: NSPopUpButton!
+    
+    @IBOutlet var saveiPhoneIconButton: NSButton!
+    @IBOutlet var saveiPadIconButton: NSButton!
+    @IBOutlet var saveMacIconButton: NSButton!
+    
     private var iPhoneIcons: [BWIcon]?
     private var iPadIcons: [BWIcon]?
     private var MacIcons: [BWIcon]?
@@ -90,13 +96,24 @@ class ViewController: NSViewController {
          *
          */
         
+        self.generateButton.insertItem(withTitle: "Icon For ----", at: 0)
+        self.generateButton.selectItem(at: 0)
 
-        self.templateIcon = NSImage(named: "app_icon_template.png")
+        saveiPhoneIconButton.isEnabled = false
+        saveiPadIconButton.isEnabled = false
+        saveMacIconButton.isEnabled = false
         
+        templateIcon = NSImage(named: "app_icon_template.png")
+        
+        // 获取图标数据
         let icons = BWIcon.loadIcons()
         iPhoneIcons = icons.0
         iPadIcons = icons.1
         MacIcons = icons.2
+        
+        iPhoneIconView.icons = iPhoneIcons
+        iPadIconView.icons = iPadIcons
+        MacIconView.icons = MacIcons
     }
 
     override var representedObject: Any? {
@@ -104,7 +121,6 @@ class ViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
-
 
 }
 
@@ -128,28 +144,70 @@ extension ViewController {
                     let image = NSImage(contentsOfFile: url.path) else {
                     return
                 }
-                self.templateIcon = image
                 self.templateIconButton.image = image
-            } else if response == .cancel { // 取消
-                
+                self.templateIcon = image
             }
         }
     }
     
     /// 生成图标
-    @IBAction func generateIconEvent(_ sender: NSButton) {
-        guard let templateIcon = templateIcon else { return }
+    @IBAction func generateIconEvent(_ sender: NSPopUpButton) {
+        guard let templateIcon = templateIcon else {
+            print("请添加App模板图标")
+            return
+        }
         
-        iPhoneIcons?.forEach({ (icon) in
-            icon.generateIcon(with: templateIcon)
-        })
-        
-        iPhoneIconView.showIcons(with: iPhoneIcons!)
-        
+        // 根据模板图标,生成各种不同尺寸的图标,并显示
+        switch sender.indexOfSelectedItem {
+            case 0: ()
+            
+            case 1:
+                iPhoneIcons?.forEach({ (icon) in
+                    icon.generateIcon(with: templateIcon)
+                })
+                iPhoneIconView.showIcons(with: iPhoneIcons)
+                saveiPhoneIconButton.isEnabled = true
+            
+            case 2:
+                iPadIcons?.forEach({ (icon) in
+                    icon.generateIcon(with: templateIcon)
+                })
+                iPadIconView.showIcons(with: iPadIcons)
+                saveiPadIconButton.isEnabled = true
+            
+            case 3:
+                MacIcons?.forEach({ (icon) in
+                    icon.generateIcon(with: templateIcon)
+                })
+                MacIconView.showIcons(with: MacIcons)
+                saveMacIconButton.isEnabled = true
+            
+            default: ()
+        }
     }
 
     /// 导出图标
     @IBAction func saveIconEvent(_ sender: NSButton) {
+        var tempIcons: [BWIcon]?
+        switch sender.tag {
+            case 200:
+                tempIcons = iPhoneIcons
+            case 201:
+                tempIcons = iPadIcons
+            case 202:
+                tempIcons = MacIcons
+            default: ()
+        }
+        
+        guard let icons = tempIcons else {
+            print("导出图标时,图标数据为空!")
+            return
+        }
+        guard !icons.isEmpty else {
+            print("导出图标时,图标数据为空!!")
+            return
+        }
+        
         // 选择保存路径
         let panel = NSOpenPanel()
         panel.title = "请选择保存路径"
@@ -165,9 +223,9 @@ extension ViewController {
                     return
                 }
 
-                for (index, icon) in self.iPhoneIcons!.enumerated() {
+                for (index, icon) in icons.enumerated() {
                     
-//                self.iPhoneIcons?.forEach({ (icon) in
+//                icons.forEach({ (icon) in
                     
                     if index < 2 {
                         let icon_idiom = icon.idiom ?? ""

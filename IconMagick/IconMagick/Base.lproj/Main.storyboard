@@ -688,8 +688,9 @@
                     <window key="window" title="IconMagick" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="contentRect" x="196" y="240" width="800" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <value key="minSize" type="size" width="800" height="270"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
@@ -707,14 +708,14 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="IconMagick" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="284"/>
+                        <rect key="frame" x="0.0" y="0.0" width="808" height="811"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="08n-Tt-7ML">
-                                <rect key="frame" x="180" y="144" width="120" height="120"/>
+                                <rect key="frame" x="50" y="346" width="120" height="120"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="Zv8-UB-HaN"/>
-                                    <constraint firstAttribute="height" constant="120" id="iHo-Yh-OT0"/>
+                                    <constraint firstAttribute="height" constant="120" id="6Us-hD-Kwz"/>
+                                    <constraint firstAttribute="width" constant="120" id="Wwi-5G-uY7"/>
                                 </constraints>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="app_icon_template" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="HyQ-L7-VLW">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -724,71 +725,138 @@
                                     <action selector="addIconEvent:" target="XfG-lQ-9wD" id="7NJ-F8-nvB"/>
                                 </connections>
                             </button>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="hjk-AC-Di1" customClass="BWIconsView" customModule="IconMagick" customModuleProvider="target">
-                                <rect key="frame" x="180" y="10" width="120" height="120"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="dxz-dR-vVk"/>
-                                </constraints>
-                            </customView>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Xgi-LD-TsB" customClass="BWIconsView" customModule="IconMagick" customModuleProvider="target">
-                                <rect key="frame" x="340" y="10" width="120" height="120"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="QER-m4-RKM"/>
-                                </constraints>
-                            </customView>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iIK-ZL-YZc">
-                                <rect key="frame" x="4" y="167" width="165" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Generate For iPhone" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3ho-NF-FMy">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ikk-Pl-CTC">
+                                <rect key="frame" x="44" y="286" width="133" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="Icon For Mac" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="dny-b3-eQD" id="CPa-sO-Yit">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
-                                </buttonCell>
+                                    <menu key="menu" id="wKq-qs-Ifq">
+                                        <items>
+                                            <menuItem title="Icon For iPhone" id="x1F-Ib-Apu"/>
+                                            <menuItem title="Icon For iPad" id="g3X-KU-vzg"/>
+                                            <menuItem title="Icon For Mac" state="on" id="dny-b3-eQD"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
                                 <connections>
-                                    <action selector="generateIconEvent:" target="XfG-lQ-9wD" id="jAc-Ui-uxo"/>
+                                    <action selector="generateIconEvent:" target="XfG-lQ-9wD" id="xDW-Zy-mYD"/>
                                 </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m1G-ec-e14">
-                                <rect key="frame" x="52" y="213" width="70" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="63d-vw-WVK">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="saveIconEvent:" target="XfG-lQ-9wD" id="FK4-Ed-GB0"/>
-                                </connections>
-                            </button>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="rv3-Ol-bUG" customClass="BWIconsView" customModule="IconMagick" customModuleProvider="target">
-                                <rect key="frame" x="26" y="10" width="120" height="120"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="mHW-Sg-KRC"/>
-                                </constraints>
-                            </customView>
+                            </popUpButton>
+                            <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHc-qk-2bo">
+                                <rect key="frame" x="220" y="10" width="538" height="791"/>
+                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="I4a-Af-6KE">
+                                    <rect key="frame" x="0.0" y="0.0" width="538" height="791"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <view id="HCi-Pk-FB5">
+                                            <rect key="frame" x="0.0" y="0.0" width="523" height="776"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <customView translatesAutoresizingMaskIntoConstraints="NO" id="Xgi-LD-TsB" customClass="BWIconsView" customModule="IconMagick" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="30" width="440" height="206"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="440" id="VHp-lF-M0g"/>
+                                                        <constraint firstAttribute="height" constant="206" id="dap-rO-VLU"/>
+                                                    </constraints>
+                                                </customView>
+                                                <button verticalHuggingPriority="750" tag="202" translatesAutoresizingMaskIntoConstraints="NO" id="Rjs-Ue-tmo">
+                                                    <rect key="frame" x="464" y="116" width="70" height="32"/>
+                                                    <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Pds-Uz-zCe">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="saveIconEvent:" target="XfG-lQ-9wD" id="o67-Tk-zH8"/>
+                                                    </connections>
+                                                </button>
+                                                <customView translatesAutoresizingMaskIntoConstraints="NO" id="hjk-AC-Di1" customClass="BWIconsView" customModule="IconMagick" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="256" width="440" height="206"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="206" id="9h7-On-Opg"/>
+                                                        <constraint firstAttribute="width" constant="440" id="fek-Qg-8Bi"/>
+                                                    </constraints>
+                                                </customView>
+                                                <customView translatesAutoresizingMaskIntoConstraints="NO" id="rv3-Ol-bUG" customClass="BWIconsView" customModule="IconMagick" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="482" width="440" height="206"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="440" id="lwu-yv-RaL"/>
+                                                        <constraint firstAttribute="height" constant="206" id="pXn-jy-axy"/>
+                                                    </constraints>
+                                                </customView>
+                                                <button verticalHuggingPriority="750" tag="200" translatesAutoresizingMaskIntoConstraints="NO" id="m1G-ec-e14">
+                                                    <rect key="frame" x="464" y="568" width="70" height="32"/>
+                                                    <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="63d-vw-WVK">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="saveIconEvent:" target="XfG-lQ-9wD" id="FK4-Ed-GB0"/>
+                                                    </connections>
+                                                </button>
+                                                <button verticalHuggingPriority="750" tag="201" translatesAutoresizingMaskIntoConstraints="NO" id="b0C-zF-EdQ">
+                                                    <rect key="frame" x="464" y="342" width="70" height="32"/>
+                                                    <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="td1-wb-CAw">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="saveIconEvent:" target="XfG-lQ-9wD" id="ift-Ae-5g4"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Xgi-LD-TsB" firstAttribute="leading" secondItem="HCi-Pk-FB5" secondAttribute="leading" id="4QQ-DM-Vdj"/>
+                                                <constraint firstItem="rv3-Ol-bUG" firstAttribute="leading" secondItem="HCi-Pk-FB5" secondAttribute="leading" id="FdO-Ml-2QG"/>
+                                                <constraint firstItem="Xgi-LD-TsB" firstAttribute="top" secondItem="hjk-AC-Di1" secondAttribute="bottom" constant="20" id="GX1-cS-tpS"/>
+                                                <constraint firstItem="Rjs-Ue-tmo" firstAttribute="centerY" secondItem="Xgi-LD-TsB" secondAttribute="centerY" id="HbA-gx-ZI6"/>
+                                                <constraint firstItem="m1G-ec-e14" firstAttribute="leading" secondItem="rv3-Ol-bUG" secondAttribute="trailing" constant="30" id="S13-Br-hwv"/>
+                                                <constraint firstItem="m1G-ec-e14" firstAttribute="centerY" secondItem="rv3-Ol-bUG" secondAttribute="centerY" id="SYp-Ns-K0t"/>
+                                                <constraint firstItem="hjk-AC-Di1" firstAttribute="top" secondItem="rv3-Ol-bUG" secondAttribute="bottom" constant="20" id="StN-b3-bbj"/>
+                                                <constraint firstItem="Rjs-Ue-tmo" firstAttribute="leading" secondItem="Xgi-LD-TsB" secondAttribute="trailing" constant="30" id="WBL-ZZ-bT4"/>
+                                                <constraint firstAttribute="bottom" secondItem="Xgi-LD-TsB" secondAttribute="bottom" constant="30" id="Wmh-Yr-ild"/>
+                                                <constraint firstItem="hjk-AC-Di1" firstAttribute="leading" secondItem="HCi-Pk-FB5" secondAttribute="leading" id="hY7-2C-fj9"/>
+                                                <constraint firstItem="b0C-zF-EdQ" firstAttribute="leading" secondItem="hjk-AC-Di1" secondAttribute="trailing" constant="30" id="tdD-AV-U7l"/>
+                                                <constraint firstItem="b0C-zF-EdQ" firstAttribute="centerY" secondItem="hjk-AC-Di1" secondAttribute="centerY" id="yfy-MF-7PY"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="qaq-mG-S80">
+                                    <rect key="frame" x="-100" y="-100" width="534" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="bxO-cs-ts8">
+                                    <rect key="frame" x="-100" y="-100" width="16" height="673"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="Xgi-LD-TsB" firstAttribute="bottom" secondItem="rv3-Ol-bUG" secondAttribute="bottom" id="5o4-H0-GkN"/>
-                            <constraint firstItem="08n-Tt-7ML" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="AK5-ze-15L"/>
-                            <constraint firstItem="Xgi-LD-TsB" firstAttribute="top" secondItem="rv3-Ol-bUG" secondAttribute="top" id="DHb-7H-5sv"/>
-                            <constraint firstItem="rv3-Ol-bUG" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="26" id="G51-JB-zva"/>
-                            <constraint firstItem="08n-Tt-7ML" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="OK1-BU-qIY"/>
-                            <constraint firstAttribute="bottom" secondItem="hjk-AC-Di1" secondAttribute="bottom" constant="10" id="SAx-BI-PNK"/>
-                            <constraint firstItem="hjk-AC-Di1" firstAttribute="top" secondItem="rv3-Ol-bUG" secondAttribute="top" id="SJp-cI-N6X"/>
-                            <constraint firstItem="hjk-AC-Di1" firstAttribute="top" secondItem="08n-Tt-7ML" secondAttribute="bottom" constant="14" id="YQB-5p-FSQ"/>
-                            <constraint firstItem="hjk-AC-Di1" firstAttribute="bottom" secondItem="rv3-Ol-bUG" secondAttribute="bottom" id="bFZ-Wj-7jY"/>
-                            <constraint firstAttribute="trailing" secondItem="Xgi-LD-TsB" secondAttribute="trailing" constant="20" id="uCA-0m-NG4"/>
-                            <constraint firstItem="hjk-AC-Di1" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="ykC-oy-eDc"/>
+                            <constraint firstItem="SHc-qk-2bo" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="10" id="7MV-VB-IvW"/>
+                            <constraint firstItem="08n-Tt-7ML" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="J18-Yc-ygx"/>
+                            <constraint firstItem="08n-Tt-7ML" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="50" id="N9O-HD-5yp"/>
+                            <constraint firstAttribute="trailing" secondItem="SHc-qk-2bo" secondAttribute="trailing" constant="50" id="Rz1-WT-mzD"/>
+                            <constraint firstItem="SHc-qk-2bo" firstAttribute="leading" secondItem="08n-Tt-7ML" secondAttribute="trailing" constant="50" id="hK4-cS-1jc"/>
+                            <constraint firstAttribute="bottom" secondItem="SHc-qk-2bo" secondAttribute="bottom" constant="10" id="i91-iy-dav"/>
+                            <constraint firstItem="Ikk-Pl-CTC" firstAttribute="top" secondItem="08n-Tt-7ML" secondAttribute="bottom" constant="36" id="kRi-mG-moF"/>
+                            <constraint firstItem="Ikk-Pl-CTC" firstAttribute="centerX" secondItem="08n-Tt-7ML" secondAttribute="centerX" id="xx7-pD-XAk"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="MacIconView" destination="Xgi-LD-TsB" id="pLn-Fa-A5m"/>
+                        <outlet property="generateButton" destination="Ikk-Pl-CTC" id="G73-RI-z2g"/>
                         <outlet property="iPadIconView" destination="hjk-AC-Di1" id="kVb-wF-Gyy"/>
                         <outlet property="iPhoneIconView" destination="rv3-Ol-bUG" id="hRS-Rp-MBi"/>
+                        <outlet property="saveMacIconButton" destination="Rjs-Ue-tmo" id="zP0-2h-GUc"/>
+                        <outlet property="saveiPadIconButton" destination="b0C-zF-EdQ" id="O8n-UL-Eay"/>
+                        <outlet property="saveiPhoneIconButton" destination="m1G-ec-e14" id="sYd-CA-gSE"/>
                         <outlet property="templateIconButton" destination="08n-Tt-7ML" id="mbN-hC-jFe"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="75" y="976.5"/>
         </scene>
     </scenes>
     <resources>
