@@ -1,0 +1,406 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		062AE0782388D65F009CABC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062AE0772388D65F009CABC3 /* AppDelegate.swift */; };
+		062AE07C2388D664009CABC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 062AE07B2388D664009CABC3 /* Assets.xcassets */; };
+		062AE07F2388D664009CABC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 062AE07D2388D664009CABC3 /* Main.storyboard */; };
+		062AE08E2388D7D7009CABC3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062AE08D2388D7D7009CABC3 /* ViewController.swift */; };
+		062AE0902388D7FA009CABC3 /* app_icon_template.png in Resources */ = {isa = PBXBuildFile; fileRef = 062AE08F2388D7FA009CABC3 /* app_icon_template.png */; };
+		062AE0922388DF65009CABC3 /* BWIconsInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 062AE0912388DF65009CABC3 /* BWIconsInfo.plist */; };
+		062AE0942388FDB4009CABC3 /* BWIconsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062AE0932388FDB4009CABC3 /* BWIconsView.swift */; };
+		062AE09723890007009CABC3 /* BWIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062AE09623890007009CABC3 /* BWIcon.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		062AE0742388D65F009CABC3 /* IconMagick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IconMagick.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		062AE0772388D65F009CABC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		062AE07B2388D664009CABC3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		062AE07E2388D664009CABC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		062AE0802388D664009CABC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		062AE0812388D664009CABC3 /* IconMagick.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IconMagick.entitlements; sourceTree = "<group>"; };
+		062AE08D2388D7D7009CABC3 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		062AE08F2388D7FA009CABC3 /* app_icon_template.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_icon_template.png; sourceTree = "<group>"; };
+		062AE0912388DF65009CABC3 /* BWIconsInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = BWIconsInfo.plist; sourceTree = "<group>"; };
+		062AE0932388FDB4009CABC3 /* BWIconsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BWIconsView.swift; sourceTree = "<group>"; };
+		062AE09623890007009CABC3 /* BWIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BWIcon.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		062AE0712388D65F009CABC3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		062AE06B2388D65F009CABC3 = {
+			isa = PBXGroup;
+			children = (
+				062AE0762388D65F009CABC3 /* IconMagick */,
+				062AE0752388D65F009CABC3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		062AE0752388D65F009CABC3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				062AE0742388D65F009CABC3 /* IconMagick.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		062AE0762388D65F009CABC3 /* IconMagick */ = {
+			isa = PBXGroup;
+			children = (
+				062AE0772388D65F009CABC3 /* AppDelegate.swift */,
+				062AE07D2388D664009CABC3 /* Main.storyboard */,
+				062AE08A2388D7D7009CABC3 /* Main */,
+				062AE0892388D7D1009CABC3 /* Common */,
+				062AE0872388D7CC009CABC3 /* Resources */,
+				062AE07B2388D664009CABC3 /* Assets.xcassets */,
+				062AE0802388D664009CABC3 /* Info.plist */,
+				062AE0812388D664009CABC3 /* IconMagick.entitlements */,
+			);
+			path = IconMagick;
+			sourceTree = "<group>";
+		};
+		062AE0872388D7CC009CABC3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				062AE0912388DF65009CABC3 /* BWIconsInfo.plist */,
+				062AE0882388D7CC009CABC3 /* Images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		062AE0882388D7CC009CABC3 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				062AE08F2388D7FA009CABC3 /* app_icon_template.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		062AE0892388D7D1009CABC3 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		062AE08A2388D7D7009CABC3 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				062AE08C2388D7D7009CABC3 /* ViewController */,
+				062AE08B2388D7D7009CABC3 /* View */,
+				062AE0952388FE96009CABC3 /* Model */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		062AE08B2388D7D7009CABC3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				062AE0932388FDB4009CABC3 /* BWIconsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		062AE08C2388D7D7009CABC3 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				062AE08D2388D7D7009CABC3 /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		062AE0952388FE96009CABC3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				062AE09623890007009CABC3 /* BWIcon.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		062AE0732388D65F009CABC3 /* IconMagick */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 062AE0842388D664009CABC3 /* Build configuration list for PBXNativeTarget "IconMagick" */;
+			buildPhases = (
+				062AE0702388D65F009CABC3 /* Sources */,
+				062AE0712388D65F009CABC3 /* Frameworks */,
+				062AE0722388D65F009CABC3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IconMagick;
+			productName = IconMagick;
+			productReference = 062AE0742388D65F009CABC3 /* IconMagick.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		062AE06C2388D65F009CABC3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1110;
+				LastUpgradeCheck = 1110;
+				ORGANIZATIONNAME = BTStudio;
+				TargetAttributes = {
+					062AE0732388D65F009CABC3 = {
+						CreatedOnToolsVersion = 11.1;
+					};
+				};
+			};
+			buildConfigurationList = 062AE06F2388D65F009CABC3 /* Build configuration list for PBXProject "IconMagick" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 062AE06B2388D65F009CABC3;
+			productRefGroup = 062AE0752388D65F009CABC3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				062AE0732388D65F009CABC3 /* IconMagick */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		062AE0722388D65F009CABC3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				062AE0922388DF65009CABC3 /* BWIconsInfo.plist in Resources */,
+				062AE07C2388D664009CABC3 /* Assets.xcassets in Resources */,
+				062AE0902388D7FA009CABC3 /* app_icon_template.png in Resources */,
+				062AE07F2388D664009CABC3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		062AE0702388D65F009CABC3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				062AE08E2388D7D7009CABC3 /* ViewController.swift in Sources */,
+				062AE09723890007009CABC3 /* BWIcon.swift in Sources */,
+				062AE0782388D65F009CABC3 /* AppDelegate.swift in Sources */,
+				062AE0942388FDB4009CABC3 /* BWIconsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		062AE07D2388D664009CABC3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				062AE07E2388D664009CABC3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		062AE0822388D664009CABC3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		062AE0832388D664009CABC3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		062AE0852388D664009CABC3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = IconMagick/IconMagick.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = Q9DDP5YT6J;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = IconMagick/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BTStudio.IconMagick;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		062AE0862388D664009CABC3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = IconMagick/IconMagick.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = Q9DDP5YT6J;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = IconMagick/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BTStudio.IconMagick;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		062AE06F2388D65F009CABC3 /* Build configuration list for PBXProject "IconMagick" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				062AE0822388D664009CABC3 /* Debug */,
+				062AE0832388D664009CABC3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		062AE0842388D664009CABC3 /* Build configuration list for PBXNativeTarget "IconMagick" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				062AE0852388D664009CABC3 /* Debug */,
+				062AE0862388D664009CABC3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 062AE06C2388D65F009CABC3 /* Project object */;
+}
