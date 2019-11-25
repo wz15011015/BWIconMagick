@@ -52,7 +52,7 @@ extension BWIconsView {
     
     private func setupUI() {
 //        wantsLayer = true
-//        layer?.backgroundColor = NSColor.gray.cgColor
+//        layer?.backgroundColor = NSColor.orange.cgColor
     }
     
     /// 添加图标视图

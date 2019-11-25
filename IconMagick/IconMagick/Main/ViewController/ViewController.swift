@@ -11,12 +11,11 @@ import Cocoa
 class ViewController: NSViewController {
     
     @IBOutlet var templateIconButton: NSButton!
+    @IBOutlet var generateButton: NSPopUpButton!
+    
     @IBOutlet var iPhoneIconView: BWIconsView!
     @IBOutlet var iPadIconView: BWIconsView!
     @IBOutlet var MacIconView: BWIconsView!
-    
-    @IBOutlet var generateButton: NSPopUpButton!
-    
     @IBOutlet var saveiPhoneIconButton: NSButton!
     @IBOutlet var saveiPadIconButton: NSButton!
     @IBOutlet var saveMacIconButton: NSButton!
@@ -29,8 +28,6 @@ class ViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
         /**
          * Icon For iPhone:
@@ -96,24 +93,14 @@ class ViewController: NSViewController {
          *
          */
         
-        self.generateButton.insertItem(withTitle: "Icon For ----", at: 0)
-        self.generateButton.selectItem(at: 0)
-
-        saveiPhoneIconButton.isEnabled = false
-        saveiPadIconButton.isEnabled = false
-        saveMacIconButton.isEnabled = false
+        registerNotification()
         
-        templateIcon = NSImage(named: "app_icon_template.png")
-        
-        // 获取图标数据
-        let icons = BWIcon.loadIcons()
-        iPhoneIcons = icons.0
-        iPadIcons = icons.1
-        MacIcons = icons.2
-        
-        iPhoneIconView.icons = iPhoneIcons
-        iPadIconView.icons = iPadIcons
-        MacIconView.icons = MacIcons
+        setupUI()
+    }
+    
+    private func registerNotification() {
+        // 注册窗口大小改变的通知
+        NotificationCenter.default.addObserver(self, selector: #selector(windowDidResize(_:)), name: NSWindow.didResizeNotification, object: nil)
     }
 
     override var representedObject: Any? {
@@ -125,9 +112,46 @@ class ViewController: NSViewController {
 }
 
 
+
+// MARK: - UI
+
+extension ViewController {
+    
+    private func setupUI() {
+        generateButton.insertItem(withTitle: "Icon For ----", at: 0)
+        generateButton.selectItem(at: 0)
+
+        saveiPhoneIconButton.isEnabled = false
+        saveiPadIconButton.isEnabled = false
+        saveMacIconButton.isEnabled = false
+        
+        templateIcon = NSImage(named: "app_icon_template.png")
+        
+        
+        // 获取图标数据
+        let icons = BWIcon.loadIcons()
+        iPhoneIcons = icons.0
+        iPadIcons = icons.1
+        MacIcons = icons.2
+        
+        iPhoneIconView.icons = iPhoneIcons
+        iPadIconView.icons = iPadIcons
+        MacIconView.icons = MacIcons
+    }
+}
+
+
 // MARK: - Events
 
 extension ViewController {
+    
+    /// 窗口大小改变的通知
+    /// - Parameter notification: 通知
+    @objc func windowDidResize(_ notification: Notification) {
+        guard let window = notification.object as? NSWindow else { return }
+
+        print(window.frame.size)
+    }
     
     /// 添加模板图标
     @IBAction func addIconEvent(_ sender: NSButton) {
@@ -218,44 +242,42 @@ extension ViewController {
         panel.canCreateDirectories = true
         panel.directoryURL = URL(string: "~/Desktop") // 默认打开路径
         panel.beginSheetModal(for: NSApp.mainWindow!) { (response: NSApplication.ModalResponse) in
-            if response == .OK { // 选取了路径
-                guard let url = panel.urls.first else {
-                    return
-                }
-
-                for (index, icon) in icons.enumerated() {
-                    
-//                icons.forEach({ (icon) in
-                    
-                    if index < 2 {
-                        let icon_idiom = icon.idiom ?? ""
-                        let icon_size = Int(icon.size)
-                        let icon_scale = Int(icon.scale)
-                        // 生成文件名 (文件名格式为: app_icon_iPhone_20x20@2x.png)
-                        let imageFileName = "app_icon_\(icon_idiom)_\(icon_size)x\(icon_size)@\(icon_scale)x.png"
-                        // 文件保存路径
-                        var imageFileURL = url
-                        imageFileURL.appendPathComponent(imageFileName)
-                        
-                        if let image = icon.image,
-                            let cgImageRef = image.cgImage(forProposedRect: nil, context: nil, hints: nil) {
-                            let bitmapImageRep = NSBitmapImageRep(cgImage: cgImageRef)
-                            bitmapImageRep.size = image.size
-                            bitmapImageRep.pixelsWide = Int(image.size.width)
-                            bitmapImageRep.pixelsHigh = Int(image.size.height)
-                            let pngData = bitmapImageRep.representation(using: NSBitmapImageRep.FileType.png, properties: [:])
-
-                            // 保存图片到本地
-                            try? pngData?.write(to: imageFileURL)
-                        }
-                        
-                    }
-                    
-//                })
-                    
-                }
-                
+            if response != .OK {
+                return
             }
+            
+            // 选取了路径
+            guard let url = panel.urls.first else {
+                return
+            }
+            
+            icons.forEach({ (icon) in
+                let icon_idiom = icon.idiom ?? ""
+                let icon_size = Int(icon.size)
+                let icon_scale = Int(icon.scale)
+                // 生成文件名 (文件名格式为: app_icon_iPhone_20x20@2x.png)
+                var imageFileName = ""
+                if icon_scale == 1 {
+                    imageFileName = "app_icon_\(icon_idiom)_\(icon_size)x\(icon_size).png"
+                } else {
+                    imageFileName = "app_icon_\(icon_idiom)_\(icon_size)x\(icon_size)@\(icon_scale)x.png"
+                }
+                // 文件保存路径
+                var imageFileURL = url
+                imageFileURL.appendPathComponent(imageFileName)
+                
+                if let image = icon.image,
+                    let cgImageRef = image.cgImage(forProposedRect: nil, context: nil, hints: nil) {
+                    let bitmapImageRep = NSBitmapImageRep(cgImage: cgImageRef)
+                    bitmapImageRep.size = image.size
+                    bitmapImageRep.pixelsWide = Int(image.size.width)
+                    bitmapImageRep.pixelsHigh = Int(image.size.height)
+                    let pngData = bitmapImageRep.representation(using: NSBitmapImageRep.FileType.png, properties: [:])
+
+                    // 保存图片到本地
+                    try? pngData?.write(to: imageFileURL)
+                }
+            })
         }
     }
 }
