@@ -717,7 +717,7 @@
                                     <constraint firstAttribute="height" constant="120" id="6Us-hD-Kwz"/>
                                     <constraint firstAttribute="width" constant="120" id="Wwi-5G-uY7"/>
                                 </constraints>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="app_icon_template" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="HyQ-L7-VLW">
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="add" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="HyQ-L7-VLW">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -837,6 +837,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="app_icon_template" width="1024" height="1024"/>
+        <image name="add" width="1024" height="1020"/>
     </resources>
 </document>

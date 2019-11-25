@@ -5,9 +5,8 @@
 
 ## Introduction
 
-Generate icon for iOS developer.
+Generate icons for iPhone, iPad, Mac.
 
-iOS开发者的图标生成助手。
 
 
 ## Usage

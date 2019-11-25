@@ -88,7 +88,11 @@ extension BWIconsView {
             sizeLabel.backgroundColor = NSColor.clear
             addSubview(sizeLabel)
 
-            let size = Int(icon.size)
+            var size = String(format: "%.f", icon.size)
+            // 针对83.5的显示处理
+            if icon.size == 83.5 {
+                size = "83.5"
+            }
             let scale = Int(icon.scale)
             if scale == 1 {
                 sizeLabel.string = "\(size)x\(size)"

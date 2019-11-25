@@ -16,6 +16,7 @@
 		062AE0942388FDB4009CABC3 /* BWIconsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062AE0932388FDB4009CABC3 /* BWIconsView.swift */; };
 		062AE09723890007009CABC3 /* BWIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062AE09623890007009CABC3 /* BWIcon.swift */; };
 		06D2C13323896FF2000836CF /* ITACommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D2C13223896FF2000836CF /* ITACommon.swift */; };
+		06D45193238BC1CA00A63A2E /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 06D45192238BC1CA00A63A2E /* add.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		062AE0932388FDB4009CABC3 /* BWIconsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BWIconsView.swift; sourceTree = "<group>"; };
 		062AE09623890007009CABC3 /* BWIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BWIcon.swift; sourceTree = "<group>"; };
 		06D2C13223896FF2000836CF /* ITACommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITACommon.swift; sourceTree = "<group>"; };
+		06D45192238BC1CA00A63A2E /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 		062AE0882388D7CC009CABC3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				06D45192238BC1CA00A63A2E /* add.png */,
 				062AE08F2388D7FA009CABC3 /* app_icon_template.png */,
 			);
 			path = Images;
@@ -195,6 +198,7 @@
 				062AE0922388DF65009CABC3 /* BWIconsInfo.plist in Resources */,
 				062AE07C2388D664009CABC3 /* Assets.xcassets in Resources */,
 				062AE0902388D7FA009CABC3 /* app_icon_template.png in Resources */,
+				06D45193238BC1CA00A63A2E /* add.png in Resources */,
 				062AE07F2388D664009CABC3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
