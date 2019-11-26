@@ -155,8 +155,21 @@ extension BWIcon {
     func resizeImage(sourceImage image: NSImage, toSize size: CGSize) -> NSImage {
         // 1. 目标图像尺寸
         // 屏幕倍数(几倍屏)
-        let screenScale = NSScreen.main?.backingScaleFactor ?? 1.0
-//        print("screenScale: \(screenScale)")
+        var screenScale = NSScreen.main?.backingScaleFactor ?? 1.0
+//        if let deviceDes = NSScreen.main?.deviceDescription {
+//            let screenSize = deviceDes[NSDeviceDescriptionKey.size] ?? NSSize(width: 0, height: 0) // 当前屏幕尺寸
+//            let resolution = deviceDes[NSDeviceDescriptionKey.resolution] as? NSSize // 当前屏幕分辨率
+//            let screenDPI = resolution?.width ?? 0 // 当前屏幕DPI
+//            if screenDPI == 72 {
+//                print("Current screen : scale=1, DPI=\(screenDPI), size=\(screenSize)")
+//            } else if screenDPI == 144 {
+//                print("Current screen : scale=2, DPI=\(screenDPI), size=\(screenSize)")
+//            } else {
+//                print("Current screen : scale=\(screenScale), DPI=\(screenDPI), size=\(screenSize)")
+//            }
+//        }
+        // 在外接显示器屏幕上时,获取的screenScale为1.0,会导致尺寸错误,所以设置screenScale=2.0
+        screenScale = 2.0
         let targetRect = NSRect(x: 0, y: 0, width: size.width / screenScale, height: size.height / screenScale)
         
         // 2. 获取源图像数据
