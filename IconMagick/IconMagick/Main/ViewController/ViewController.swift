@@ -56,20 +56,20 @@ class ViewController: NSViewController {
          * Icon For iPad:
          *
          *  iPad Notification (iOS 7 - 13)
-         *  20pt :  app_icon_iPad_20x20.png              20 x 20 px
-         *       app_icon_iPad_20x20@2x.png      40 x 40 px
+         *  20pt :  app_icon_iPad_20x20.png               20 x 20 px
+         *       app_icon_iPad_20x20@2x.png       40 x 40 px
          *
          *  iPad Settings (iOS 7 - 13)
-         *  29pt :  app_icon_iPad_29x29.png              29 x 29 px
-         *       app_icon_iPad_29x29@2x.png      58 x 58 px
+         *  29pt :  app_icon_iPad_29x29.png                29 x 29 px
+         *       app_icon_iPad_29x29@2x.png        58 x 58 px
          *
          *  iPad Spotlight (iOS 7 - 13)
-         *  40pt :  app_icon_iPad_40x40.png              40 x 40 px
-         *       app_icon_iPad_40x40@2x.png      80 x 80 px
+         *  40pt :  app_icon_iPad_40x40.png                40 x 40 px
+         *       app_icon_iPad_40x40@2x.png        80 x 80 px
          *
          *  iPad App (iOS 7 - 13)
-         *  76pt :  app_icon_iPad_76x76.png              76 x 76 px
-         *       app_icon_iPad_76x76@2x.png      152 x 152 px
+         *  76pt :  app_icon_iPad_76x76.png                76 x 76 px
+         *       app_icon_iPad_76x76@2x.png        152 x 152 px
          *
          *  iPad Pro App (iOS 9 - 13)
          *  83.5pt :  app_icon_iPad_83.5x83.5@2x.png      167 x 167 px
@@ -77,11 +77,11 @@ class ViewController: NSViewController {
          *
          * Icon For Mac:
          *
-         *  16pt :  app_icon_Mac_16x16.png                   16 x 16 px
-         *       app_icon_Mac_16x16@2x.png            32 x 32 px
+         *  16pt :  app_icon_Mac_16x16.png                     16 x 16 px
+         *       app_icon_Mac_16x16@2x.png              32 x 32 px
          *
-         *  32pt :  app_icon_Mac_32x32.png                    32 x 32 px
-         *       app_icon_Mac_32x32@2x.png             64 x 64 px
+         *  32pt :  app_icon_Mac_32x32.png                      32 x 32 px
+         *       app_icon_Mac_32x32@2x.png              64 x 64 px
          *
          *  128pt :  app_icon_Mac_128x128.png               128 x 128 px
          *        app_icon_Mac_128x128@2x.png        256 x 256 px
@@ -121,10 +121,6 @@ extension ViewController {
     private func setupUI() {
         generateButton.insertItem(withTitle: "Icon For ----", at: 0)
         generateButton.selectItem(at: 0)
-
-        saveiPhoneIconButton.isEnabled = false
-        saveiPadIconButton.isEnabled = false
-        saveMacIconButton.isEnabled = false
         
         templateIcon = NSImage(named: "add.png")
         
@@ -149,9 +145,9 @@ extension ViewController {
     /// 窗口大小改变的通知
     /// - Parameter notification: 通知
     @objc func windowDidResize(_ notification: Notification) {
-        guard let window = notification.object as? NSWindow else { return }
+//        guard let window = notification.object as? NSWindow else { return }
 
-        print(window.frame.size)
+//        print(window.frame.size)
     }
     
     /// 添加模板图标
@@ -187,7 +183,7 @@ extension ViewController {
     /// 生成图标
     @IBAction func generateIconEvent(_ sender: NSPopUpButton) {
         guard let templateIcon = templateIcon else {
-            print("请添加App模板图标")
+            print("Please add App template icon")
             return
         }
         
@@ -199,21 +195,21 @@ extension ViewController {
                 iPhoneIcons?.forEach({ (icon) in
                     icon.generateIcon(with: templateIcon)
                 })
-                iPhoneIconView.showIcons(with: iPhoneIcons)
+                iPhoneIconView.show(icons: iPhoneIcons)
                 saveiPhoneIconButton.isEnabled = true
             
             case 2:
                 iPadIcons?.forEach({ (icon) in
                     icon.generateIcon(with: templateIcon)
                 })
-                iPadIconView.showIcons(with: iPadIcons)
+                iPadIconView.show(icons: iPadIcons)
                 saveiPadIconButton.isEnabled = true
             
             case 3:
                 MacIcons?.forEach({ (icon) in
                     icon.generateIcon(with: templateIcon)
                 })
-                MacIconView.showIcons(with: MacIcons)
+                MacIconView.show(icons: MacIcons)
                 saveMacIconButton.isEnabled = true
             
             default: ()
@@ -234,29 +230,29 @@ extension ViewController {
         }
         
         guard let icons = tempIcons else {
-            print("导出图标时,图标数据为空!")
+            print("When exporting icons, the icon data is empty!")
             return
         }
         guard !icons.isEmpty else {
-            print("导出图标时,图标数据为空!!")
+            print("When exporting icons, the icon data is empty!!")
             return
         }
         
-        // 选择保存路径
+        // Choose a save path
         let panel = NSOpenPanel()
-        panel.title = "请选择保存路径"
-        panel.message = "保存到"
+        panel.title = "Please choose a save path"
+        panel.message = "Save to"
         panel.prompt = "Save"
         panel.canChooseDirectories = true
         panel.canChooseFiles = false
         panel.canCreateDirectories = true
-        panel.directoryURL = URL(string: "~/Downloads") // 默认打开路径
+        panel.directoryURL = URL(string: "~/Downloads") // Open path by default
         panel.beginSheetModal(for: NSApp.mainWindow!) { (response: NSApplication.ModalResponse) in
             if response != .OK {
                 return
             }
             
-            // 选取了路径
+            // Path selected
             guard let url = panel.urls.first else {
                 return
             }

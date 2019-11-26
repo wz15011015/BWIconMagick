@@ -21,7 +21,7 @@ class BWIconsView: NSView {
         didSet {
             guard let icons = icons else { return }
 
-            addIconImageViews(with: icons)
+            addIconImageViews(icons: icons)
         }
     }
     
@@ -29,7 +29,7 @@ class BWIconsView: NSView {
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
 
-        // Drawing code here.
+        adaptationDarkModeFor(icons: icons)
     }
     
     override init(frame frameRect: NSRect) {
@@ -51,13 +51,12 @@ class BWIconsView: NSView {
 extension BWIconsView {
     
     private func setupUI() {
-//        wantsLayer = true
-//        layer?.backgroundColor = NSColor.orange.cgColor
+        
     }
     
     /// 添加图标视图
     /// - Parameter icons: 图标数组
-    private func addIconImageViews(with icons: [BWIcon]) {
+    private func addIconImageViews(icons: [BWIcon]) {
         // 计算行数,列数
 //        let count = icons.count
         let column = 5 // 列数
@@ -86,7 +85,7 @@ extension BWIconsView {
             let sizeLabelY: CGFloat = iconImageView.frame.minY - sizeLabelH - 2
             let sizeLabel = NSText(frame: NSRect(x: sizeLabelX, y: sizeLabelY, width: sizeLabelW, height: sizeLabelH))
             sizeLabel.isEditable = false
-            sizeLabel.textColor = NSColor.white
+            sizeLabel.textColor = NSColor(named: "IconImageViewSizeLabelColor")
             sizeLabel.alignment = .center
             sizeLabel.backgroundColor = NSColor.clear
             addSubview(sizeLabel)
@@ -99,7 +98,7 @@ extension BWIconsView {
     
     /// 显示图标
     /// - Parameter icons: 图标数组
-    func showIcons(with icons: [BWIcon]?) {
+    func show(icons: [BWIcon]?) {
         guard let icons = icons else { return }
         
         for (i, icon) in icons.enumerated() {
@@ -107,6 +106,24 @@ extension BWIconsView {
                 return
             }
             iconImageView.image = icon.image
+        }
+    }
+    
+    /// 图标图片背景色适配黑暗模式
+    func adaptationDarkModeFor(icons: [BWIcon]?) {
+        guard let icons = icons else { return }
+        
+        for (i, _) in icons.enumerated() {
+            guard let iconImageView = viewWithTag(IconImageViewTag + i) as? NSImageView else {
+                return
+            }
+            // 设置图片背景颜色
+            iconImageView.wantsLayer = true
+            if isDarkMode() {
+                iconImageView.layer?.backgroundColor = RGBColor(52, 53, 53).cgColor
+            } else {
+                iconImageView.layer?.backgroundColor = RGBColor(252, 253, 253).cgColor
+            }
         }
     }
 }
