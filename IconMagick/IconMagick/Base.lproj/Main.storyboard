@@ -725,8 +725,16 @@
                                     <action selector="addIconEvent:" target="XfG-lQ-9wD" id="7NJ-F8-nvB"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mNv-Kg-eX6">
+                                <rect key="frame" x="36" y="274" width="148" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Require 1024x1024 size" id="DdB-dg-x8D">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ikk-Pl-CTC">
-                                <rect key="frame" x="44" y="240" width="133" height="25"/>
+                                <rect key="frame" x="44" y="242" width="133" height="25"/>
                                 <popUpButtonCell key="cell" type="push" title="Icon For Mac" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="dny-b3-eQD" id="CPa-sO-Yit">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -815,7 +823,9 @@
                             <constraint firstItem="JPB-pi-iDc" firstAttribute="leading" secondItem="08n-Tt-7ML" secondAttribute="trailing" constant="50" id="Lzt-9M-ywQ"/>
                             <constraint firstItem="08n-Tt-7ML" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="50" id="N9O-HD-5yp"/>
                             <constraint firstAttribute="bottom" secondItem="JPB-pi-iDc" secondAttribute="bottom" constant="20" id="ZDC-SH-fw5"/>
-                            <constraint firstItem="Ikk-Pl-CTC" firstAttribute="top" secondItem="08n-Tt-7ML" secondAttribute="bottom" constant="36" id="kRi-mG-moF"/>
+                            <constraint firstItem="mNv-Kg-eX6" firstAttribute="top" secondItem="08n-Tt-7ML" secondAttribute="bottom" constant="10" id="Zh1-OL-MZY"/>
+                            <constraint firstItem="mNv-Kg-eX6" firstAttribute="centerX" secondItem="08n-Tt-7ML" secondAttribute="centerX" id="d2S-9R-yAh"/>
+                            <constraint firstItem="Ikk-Pl-CTC" firstAttribute="top" secondItem="08n-Tt-7ML" secondAttribute="bottom" constant="34" id="kRi-mG-moF"/>
                             <constraint firstAttribute="trailing" secondItem="JPB-pi-iDc" secondAttribute="trailing" constant="50" id="thw-y5-gYn"/>
                             <constraint firstItem="Ikk-Pl-CTC" firstAttribute="centerX" secondItem="08n-Tt-7ML" secondAttribute="centerX" id="xx7-pD-XAk"/>
                         </constraints>
@@ -823,6 +833,7 @@
                     <connections>
                         <outlet property="MacIconView" destination="ou0-E5-Gt1" id="ho1-NR-T7J"/>
                         <outlet property="generateButton" destination="Ikk-Pl-CTC" id="G73-RI-z2g"/>
+                        <outlet property="hintLabel" destination="mNv-Kg-eX6" id="pQE-dL-mOP"/>
                         <outlet property="iPadIconView" destination="Sd7-Wa-Nc3" id="blS-Gc-ujS"/>
                         <outlet property="iPhoneIconView" destination="ujB-Vk-XFr" id="uHE-a2-XXH"/>
                         <outlet property="saveMacIconButton" destination="U4R-EZ-dGL" id="bl1-Vg-wtJ"/>

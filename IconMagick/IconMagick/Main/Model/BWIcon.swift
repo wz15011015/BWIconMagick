@@ -59,7 +59,7 @@ class BWIcon {
         return scaleString
     }
     
-    /// 图标
+    /// 图标图像
     var image: NSImage?
     
     
@@ -85,7 +85,7 @@ class BWIcon {
     /// - Parameter templateIcon: 模板图标
     func generateIcon(with templateIcon: NSImage) {
         let size = NSSize(width: size_px, height: size_px)
-        image = resizeImage(sourceImage: templateIcon, to: size)
+        image = resizeImage(sourceImage: templateIcon, toSize: size)
     }
 }
 
@@ -148,24 +148,68 @@ extension BWIcon {
         return icons
     }
     
+    
     /// 修改图片大小
     /// - Parameter sourceImage: 源图片
     /// - Parameter size: 目标大小
-    func resizeImage(sourceImage: NSImage, to size: CGSize) -> NSImage {
-        // 目标大小
-        // 针对Retina屏幕,宽高都除以2,以保证处理后的图像保持原始大小
-        let targetRect = NSRect(x: 0, y: 0, width: size.width / 2.0, height: size.height / 2.0)
-//        let targetRect = NSRect(x: 0, y: 0, width: size.width, height: size.height)
+    func resizeImage(sourceImage image: NSImage, toSize size: CGSize) -> NSImage {
+        // 1. 目标图像尺寸
+        // 屏幕倍数(几倍屏)
+        let screenScale = NSScreen.main?.backingScaleFactor ?? 1.0
+//        print("screenScale: \(screenScale)")
+        let targetRect = NSRect(x: 0, y: 0, width: size.width / screenScale, height: size.height / screenScale)
         
-        let sourceImageRep = sourceImage.bestRepresentation(for: targetRect, context: nil, hints: nil)
+        // 2. 获取源图像数据
+        let sourceImageRep = image.bestRepresentation(for: targetRect, context: nil, hints: nil)
         
-        // 绘制目标图像
+        // 3. 创建目标图像并绘制
         let targetImage = NSImage(size: targetRect.size)
-        
+        // 使用源图像数据绘制目标图像
         targetImage.lockFocus()
         sourceImageRep?.draw(in: targetRect)
         targetImage.unlockFocus()
         
         return targetImage
     }
+    
+    /// 修改图片大小
+    /// - Parameter image: 源图片
+    /// - Parameter size: 目标大小(点pt)
+//    func resize(sourceImage image: NSImage, to size: NSSize) -> NSImage {
+//        // 源尺寸
+//        let fromRect = NSRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+//        // 目标尺寸
+//        let targetRect = NSRect(x: 0, y: 0, width: size.width, height: size.height)
+//
+//        // 创建目标图像
+//        let newImage = NSImage(size: targetRect.size)
+//        // 绘制目标图像
+//        newImage.lockFocus()
+//        image.draw(in: targetRect, from: fromRect, operation: .copy, fraction: 1.0)
+//        newImage.unlockFocus()
+//
+//        return newImage
+//    }
+    
+    /// 修改图片大小
+    /// - Parameter image: 源图片
+    /// - Parameter size: 目标大小(像素px)
+//    func resize(sourceImage image: NSImage, toPixel size: NSSize) -> NSImage {
+//        // 屏幕倍数(几倍屏)
+//        let screenScale = NSScreen.main?.backingScaleFactor ?? 1.0
+//
+//        // 源尺寸
+//        let fromRect = NSRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+//        // 目标尺寸
+//        let targetRect = NSRect(x: 0, y: 0, width: size.width / screenScale, height: size.height / screenScale)
+//
+//        // 创建目标图像
+//        let newImage = NSImage(size: targetRect.size)
+//        // 绘制目标图像
+//        newImage.lockFocus()
+//        image.draw(in: targetRect, from: fromRect, operation: .copy, fraction: 1.0)
+//        newImage.unlockFocus()
+//
+//        return newImage
+//    }
 }

@@ -11,6 +11,7 @@ import Cocoa
 class ViewController: NSViewController {
     
     @IBOutlet var templateIconButton: NSButton!
+    @IBOutlet var hintLabel: NSTextField!
     @IBOutlet var generateButton: NSPopUpButton!
     
     @IBOutlet var iPhoneIconView: BWIconsView!
@@ -169,6 +170,16 @@ extension ViewController {
                 }
                 self.templateIconButton.image = image
                 self.templateIcon = image
+                
+                // 判断模板图标大小是否符合要求,不符合时,修改提示文字
+                let size = image.size
+                if size.equalTo(NSSize(width: 1024, height: 1024)) {
+                    self.hintLabel.stringValue = "Meet 1024x1024 size"
+                    self.hintLabel.textColor = NSColor.systemGreen
+                } else {
+                    self.hintLabel.stringValue = "Require 1024x1024 size"
+                    self.hintLabel.textColor = NSColor.systemRed
+                }
             }
         }
     }
@@ -266,34 +277,15 @@ extension ViewController {
             // 文件保存路径
             var imageFileURL = url
             imageFileURL.appendPathComponent(imageFileName)
-            
-            if icon.size == 29 && icon.scale == 1.0 {
-                
-                if let image = icon.image,
-                    let cgImageRef = image.cgImage(forProposedRect: nil, context: nil, hints: nil) {
-                    let bitmapImageRep = NSBitmapImageRep(cgImage: cgImageRef)
-                    bitmapImageRep.size = image.size
-                    bitmapImageRep.pixelsWide = Int(image.size.width)
-                    bitmapImageRep.pixelsHigh = Int(image.size.height)
-                    let pngData = bitmapImageRep.representation(using: NSBitmapImageRep.FileType.png, properties: [:])
 
-                    // 保存图片到本地
-                    try? pngData?.write(to: imageFileURL)
-                }
+            if let image = icon.image,
+                let cgImageRef = image.cgImage(forProposedRect: nil, context: nil, hints: nil) {
+                
+                let bitmapImageRep = NSBitmapImageRep(cgImage: cgImageRef)
+                let pngData = bitmapImageRep.representation(using: NSBitmapImageRep.FileType.png, properties: [:])
+                // 保存图片到本地
+                try? pngData?.write(to: imageFileURL)
             }
-            
         })
-    }
-    
-    func convertCIImage(image: CIImage?, toNSImageWithSize size: NSSize) {
-//        guard let image = image else { return }
-//
-//        let colorSpaceRef = CGColorSpaceCreateDeviceGray()
-//        let contentRef = CGContext(data: nil, width: Int(size.width), height: Int(size.height), bitsPerComponent: 8, bytesPerRow: 0, space: colorSpaceRef, bitmapInfo: CGImageAlphaInfo.none.rawValue)
-//
-//        let context = CIContext()
-//
-//        let imageRef = context.createCGImage(image, from: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-//        context.scal
     }
 }
