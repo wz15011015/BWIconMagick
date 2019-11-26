@@ -161,7 +161,6 @@ extension ViewController {
         panel.allowedFileTypes = ["png"]
         panel.allowsOtherFileTypes = false
         panel.allowsMultipleSelection = false
-//        panel.directoryURL = URL(string: "~/Desktop") // 默认打开路径
         panel.beginSheetModal(for: NSApp.mainWindow!) { (response: NSApplication.ModalResponse) in
             if response == .OK { // 选取了文件
                 guard let url = panel.urls.first,
@@ -240,7 +239,7 @@ extension ViewController {
         panel.canChooseDirectories = true
         panel.canChooseFiles = false
         panel.canCreateDirectories = true
-//        panel.directoryURL = URL(string: "~/Desktop") // 默认打开路径
+        panel.directoryURL = URL(string: "~/Downloads") // 默认打开路径
         panel.beginSheetModal(for: NSApp.mainWindow!) { (response: NSApplication.ModalResponse) in
             if response != .OK {
                 return
@@ -260,24 +259,15 @@ extension ViewController {
     private func save(icons: [BWIcon], to url: URL) {
         icons.forEach({ (icon) in
             let icon_idiom = icon.idiom ?? ""
-            var icon_size = String(format: "%.f", icon.size)
-            // 针对83.5的处理
-            if icon.size == 83.5 {
-                icon_size = "83.5"
-            }
-            let icon_scale = Int(icon.scale)
+            let icon_size = icon.sizeString
+            let icon_scale = icon.scaleString
             // 生成文件名 (文件名格式为: app_icon_iPhone_20x20@2x.png)
-            var imageFileName = ""
-            if icon_scale == 1 {
-                imageFileName = "app_icon_\(icon_idiom)_\(icon_size)x\(icon_size).png"
-            } else {
-                imageFileName = "app_icon_\(icon_idiom)_\(icon_size)x\(icon_size)@\(icon_scale)x.png"
-            }
+            let imageFileName = "app_icon_\(icon_idiom)_\(icon_size)x\(icon_size)\(icon_scale).png"
             // 文件保存路径
             var imageFileURL = url
             imageFileURL.appendPathComponent(imageFileName)
             
-//            if icon.size == 29 && icon.scale == 1.0 {
+            if icon.size == 29 && icon.scale == 1.0 {
                 
                 if let image = icon.image,
                     let cgImageRef = image.cgImage(forProposedRect: nil, context: nil, hints: nil) {
@@ -290,7 +280,7 @@ extension ViewController {
                     // 保存图片到本地
                     try? pngData?.write(to: imageFileURL)
                 }
-//            }
+            }
             
         })
     }

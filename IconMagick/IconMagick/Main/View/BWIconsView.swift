@@ -69,7 +69,7 @@ extension BWIconsView {
 //        }
         
         let space_vertical: CGFloat = 18 // 竖直间距
-        let space_horizontal: CGFloat = 5 // 水平间距
+        let space_horizontal: CGFloat = 8 // 水平间距
         for (i, icon) in icons.enumerated() {
             let x = CGFloat(i % column) * (IconImageViewW + space_horizontal)
             let y = CGFloat(i / column) * (IconImageViewW + space_vertical) + space_vertical
@@ -80,25 +80,20 @@ extension BWIconsView {
             iconImageView.tag = IconImageViewTag + i
             addSubview(iconImageView)
             
+            let sizeLabelX: CGFloat = x - 2
+            let sizeLabelW: CGFloat = IconImageViewW + 4
             let sizeLabelH: CGFloat = 14
-            let sizeLabel = NSText(frame: NSRect(x: x, y: iconImageView.frame.minY - sizeLabelH - 2, width: IconImageViewW, height: sizeLabelH))
+            let sizeLabelY: CGFloat = iconImageView.frame.minY - sizeLabelH - 2
+            let sizeLabel = NSText(frame: NSRect(x: sizeLabelX, y: sizeLabelY, width: sizeLabelW, height: sizeLabelH))
             sizeLabel.isEditable = false
             sizeLabel.textColor = NSColor.white
             sizeLabel.alignment = .center
             sizeLabel.backgroundColor = NSColor.clear
             addSubview(sizeLabel)
 
-            var size = String(format: "%.f", icon.size)
-            // 针对83.5的显示处理
-            if icon.size == 83.5 {
-                size = "83.5"
-            }
-            let scale = Int(icon.scale)
-            if scale == 1 {
-                sizeLabel.string = "\(size)x\(size)"
-            } else {
-                sizeLabel.string = "\(size)x\(size)@\(scale)x"
-            }
+            let size = icon.sizeString
+            let scale = icon.scaleString
+            sizeLabel.string = "\(size)x\(size)\(scale)"
         }
     }
     

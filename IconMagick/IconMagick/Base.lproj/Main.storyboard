@@ -688,9 +688,9 @@
                     <window key="window" title="IconMagick" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="820" height="260"/>
+                        <rect key="contentRect" x="196" y="240" width="832" height="260"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <value key="minSize" type="size" width="820" height="260"/>
+                        <value key="minSize" type="size" width="832" height="260"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
@@ -708,7 +708,7 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="IconMagick" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="820" height="720"/>
+                        <rect key="frame" x="0.0" y="0.0" width="832" height="720"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="08n-Tt-7ML">
@@ -743,23 +743,23 @@
                                 </connections>
                             </popUpButton>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="JPB-pi-iDc">
-                                <rect key="frame" x="220" y="20" width="550" height="680"/>
+                                <rect key="frame" x="220" y="20" width="562" height="680"/>
                                 <subviews>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="ujB-Vk-XFr" customClass="BWIconsView" customModule="IconMagick" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="474" width="440" height="206"/>
+                                        <rect key="frame" x="0.0" y="474" width="452" height="206"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="440" id="2rf-hM-FkA"/>
+                                            <constraint firstAttribute="width" constant="452" id="2rf-hM-FkA"/>
                                             <constraint firstAttribute="height" constant="206" id="XgE-AV-VMn"/>
                                         </constraints>
                                     </customView>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="Sd7-Wa-Nc3" customClass="BWIconsView" customModule="IconMagick" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="248" width="440" height="206"/>
+                                        <rect key="frame" x="0.0" y="248" width="452" height="206"/>
                                     </customView>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="ou0-E5-Gt1" customClass="BWIconsView" customModule="IconMagick" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="22" width="440" height="206"/>
+                                        <rect key="frame" x="0.0" y="22" width="452" height="206"/>
                                     </customView>
                                     <button verticalHuggingPriority="750" tag="202" translatesAutoresizingMaskIntoConstraints="NO" id="U4R-EZ-dGL">
-                                        <rect key="frame" x="484" y="108" width="70" height="32"/>
+                                        <rect key="frame" x="496" y="108" width="70" height="32"/>
                                         <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EVg-S0-fRX">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -769,7 +769,7 @@
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" tag="201" translatesAutoresizingMaskIntoConstraints="NO" id="xwf-Z3-TaN">
-                                        <rect key="frame" x="484" y="334" width="70" height="32"/>
+                                        <rect key="frame" x="496" y="334" width="70" height="32"/>
                                         <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="HaP-7p-3yQ">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -779,7 +779,7 @@
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" tag="200" translatesAutoresizingMaskIntoConstraints="NO" id="xTI-Eq-3zY">
-                                        <rect key="frame" x="484" y="560" width="70" height="32"/>
+                                        <rect key="frame" x="496" y="560" width="70" height="32"/>
                                         <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hKC-r8-0zv">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -837,6 +837,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="add" width="1024" height="1020"/>
+        <image name="add" width="1024" height="1024"/>
     </resources>
 </document>

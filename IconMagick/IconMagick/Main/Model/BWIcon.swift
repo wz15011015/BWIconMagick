@@ -38,6 +38,27 @@ class BWIcon {
         return Int(size * scale)
     }
     
+    /// 字符串格式的大小
+    var sizeString: String {
+        var sizeString = String(format: "%.f", size)
+        // 针对 83.5 的处理
+        if size == 83.5 {
+            sizeString = "83.5"
+        }
+        return sizeString
+    }
+    
+    /// 字符串格式的倍数 (1倍为"", 2倍为"@2x", 3倍为"@3x")
+    var scaleString: String {
+        var scaleString = ""
+        if scale == 1.0 {
+            scaleString = ""
+        } else {
+            scaleString = "@\(Int(scale))x"
+        }
+        return scaleString
+    }
+    
     /// 图标
     var image: NSImage?
     
@@ -134,6 +155,7 @@ extension BWIcon {
         // 目标大小
         // 针对Retina屏幕,宽高都除以2,以保证处理后的图像保持原始大小
         let targetRect = NSRect(x: 0, y: 0, width: size.width / 2.0, height: size.height / 2.0)
+//        let targetRect = NSRect(x: 0, y: 0, width: size.width, height: size.height)
         
         let sourceImageRep = sourceImage.bestRepresentation(for: targetRect, context: nil, hints: nil)
         
