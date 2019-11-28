@@ -154,7 +154,8 @@ extension ViewController {
     @IBAction func addIconEvent(_ sender: NSButton) {
         // 文件打开面板
         let panel = NSOpenPanel()
-        panel.prompt = "Select" // 自定义确定按钮文字
+        panel.message = NSLocalizedString("Please select a template icon (requires size 1024x1024)", comment: "")
+        panel.prompt = NSLocalizedString("Select", comment: "") // 自定义确定按钮文字
         panel.allowedFileTypes = ["png"]
         panel.allowsOtherFileTypes = false
         panel.allowsMultipleSelection = false
@@ -170,10 +171,10 @@ extension ViewController {
                 // 判断模板图标大小是否符合要求,不符合时,修改提示文字
                 let size = image.size
                 if size.equalTo(NSSize(width: 1024, height: 1024)) {
-                    self.hintLabel.stringValue = "Meet 1024x1024 size"
+                    self.hintLabel.stringValue = NSLocalizedString("Meet 1024x1024 size", comment: "")
                     self.hintLabel.textColor = NSColor.systemGreen
                 } else {
-                    self.hintLabel.stringValue = "Require 1024x1024 size"
+                    self.hintLabel.stringValue = NSLocalizedString("Require 1024x1024 size", comment: "")
                     self.hintLabel.textColor = NSColor.systemRed
                 }
             }
@@ -240,9 +241,9 @@ extension ViewController {
         
         // Choose a save path
         let panel = NSOpenPanel()
-        panel.title = "Please choose a save path"
-        panel.message = "Save to"
-        panel.prompt = "Save"
+        panel.title = NSLocalizedString("Please choose a save path", comment: "")
+        panel.message = NSLocalizedString("Save icons to", comment: "")
+        panel.prompt = NSLocalizedString("Save", comment: "")
         panel.canChooseDirectories = true
         panel.canChooseFiles = false
         panel.canCreateDirectories = true

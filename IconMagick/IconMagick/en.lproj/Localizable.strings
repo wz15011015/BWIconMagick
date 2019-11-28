@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  IconMagick
+
+  Created by hadlinks on 2019/11/28.
+  Copyright © 2019 BTStudio. All rights reserved.
+*/
+
+"Meet 1024x1024 size" = "Meet 1024x1024 size";
+
+"Please choose a save path" = "Please choose a save path";
+"Please select a template icon (requires size 1024x1024)" = "Please select a template icon (requires size 1024x1024)";
+
+"Require 1024x1024 size" = "Require 1024x1024 size";
+
+"Save" = "Save";
+"Save icons to" = "Save icons to";
+"Select" = "Select";

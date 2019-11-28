@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  IconMagick
+
+  Created by hadlinks on 2019/11/28.
+  Copyright © 2019 BTStudio. All rights reserved.
+*/
+
+"Meet 1024x1024 size" = "满足 1024x1024 大小";
+
+"Please choose a save path" = "请选择保存路径";
+"Please select a template icon (requires size 1024x1024)" = "请选择模板图标（要求大小为1024x1024）";
+
+"Require 1024x1024 size" = "需要 1024x1024 大小";
+
+"Save" = "保存";
+"Save icons to" = "保存图标到";
+"Select" = "选择";
