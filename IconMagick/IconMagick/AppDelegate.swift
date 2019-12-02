@@ -11,22 +11,14 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    private var shouldTeminateAppWhenClose: Bool = true
-
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         
-        // 1. 点击关闭按钮时,直接让应用程序退出
-        // 注册 willCloseNotification 通知,然后在通知方法中退出应用程序
+        // 注册通知
         NotificationCenter.default.addObserver(self, selector: #selector(applicationWindowWillClose), name: NSWindow.willCloseNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(applicationWindowWillEnterFullScreen), name: NSWindow.willEnterFullScreenNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(applicationWindowWillExitFullScreen), name: NSWindow.willExitFullScreenNotification, object: nil)
-    }
-
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
-        print("applicationWillTerminate")
     }
     
     func applicationWillBecomeActive(_ notification: Notification) {
@@ -44,28 +36,36 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         print("applicationWillHide")
     }
 
+    func applicationWillTerminate(_ aNotification: Notification) {
+        // Insert code here to tear down your application
+        print("applicationWillTerminate")
+    }
+    
+    /// 当关闭最后一个窗口时,退出应用程序
+    /// - Parameter sender: 应用程序
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        // true: 窗口 和 应用程序 都关闭
+        // false: 窗口 关闭
+        return true
+    }
+
     
     // MARK: - Custom Notification
     
+    /// 关闭窗口的通知 (注意: 关闭任意窗口时都会收到通知)
+    /// - Parameter aNotification: 通知
+    @objc func applicationWindowWillClose(_ aNotification: Notification) {
+        print("NSWindow.willCloseNotification")
+            
+//        NSApp.terminate(self)
+    }
+    
     @objc func applicationWindowWillEnterFullScreen(_ aNotification: Notification) {
         print("NSWindow.willEnterFullScreenNotification")
-        
-        shouldTeminateAppWhenClose = true
     }
     
     @objc func applicationWindowWillExitFullScreen(_ aNotification: Notification) {
         print("NSWindow.willExitFullScreenNotification")
-        
-        shouldTeminateAppWhenClose = false
-    }
-    
-    @objc func applicationWindowWillClose(_ aNotification: Notification) {
-        print("NSWindow.willCloseNotification")
-        
-        // 解决退出全屏时,也会发送willCloseNotification通知,从而导致退出应用程序的问题
-        guard shouldTeminateAppWhenClose else { return }
-        
-        NSApp.terminate(self)
     }
 }
 
