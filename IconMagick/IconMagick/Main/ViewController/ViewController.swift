@@ -122,6 +122,9 @@ extension ViewController {
         generateButton.insertItem(withTitle: "Icon For ----", at: 0)
         generateButton.selectItem(at: 0)
         
+        // 设置按钮的鼠标悬停提示文字
+        templateIconButton.toolTip = NSLocalizedString("Click to add template icon", comment: "")
+        
         templateIcon = NSImage(named: "add.png")
         
         
@@ -170,7 +173,20 @@ extension ViewController {
                 
                 // 判断模板图标大小是否符合要求,不符合时,修改提示文字
                 let size = image.size
-                if size.equalTo(NSSize(width: 1024, height: 1024)) {
+                
+                /// NSImage的size属性:
+                /// 文件名                        size
+                /// xxx.png             等于实际像素大小
+                /// xxx@2x.png     等于实际像素大小的一半
+                /// xxx@3x.png     等于实际像素大小的1/3
+                /// 以此类推...
+                // 获取实际像素大小 (通过CGImage获取)
+                var pixelSize = size
+                if let cgImageRef = image.cgImage(forProposedRect: nil, context: nil, hints: nil) {
+                    pixelSize = NSSize(width: cgImageRef.width, height: cgImageRef.height)
+                }
+                
+                if pixelSize.equalTo(NSSize(width: 1024, height: 1024)) {
                     self.hintLabel.stringValue = NSLocalizedString("Meet 1024x1024 size", comment: "")
                     self.hintLabel.textColor = NSColor.systemGreen
                 } else {

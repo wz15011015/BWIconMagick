@@ -153,6 +153,21 @@ extension BWIcon {
     /// - Parameter sourceImage: 源图片
     /// - Parameter size: 目标大小
     func resizeImage(sourceImage image: NSImage, toSize size: CGSize) -> NSImage {
+        /// NSImage的size属性:
+        /// 文件名                        size
+        /// xxx.png             等于实际像素大小
+        /// xxx@2x.png     等于实际像素大小的一半
+        /// xxx@3x.png     等于实际像素大小的1/3
+        /// 以此类推...
+        // 获取实际像素大小 (通过CGImage获取)
+//        let imageSize = image.size
+//        var pixelSize = imageSize
+//        if let cgImageRef = image.cgImage(forProposedRect: nil, context: nil, hints: nil) {
+//            pixelSize = NSSize(width: cgImageRef.width, height: cgImageRef.height)
+//        }
+//        print("size: (\(imageSize.width), \(imageSize.height)), size (pixel): (\(pixelSize.width), \(pixelSize.height))")
+        
+        
         // 1. 目标图像尺寸
         // 屏幕倍数(几倍屏)
         var screenScale = NSScreen.main?.backingScaleFactor ?? 1.0
