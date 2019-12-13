@@ -60,7 +60,7 @@
 			<key>scale</key>
 			<integer>1</integer>
 			<key>use</key>
-			<string>iPhone AppStore</string>
+			<string>App Store</string>
 			<key>system_version</key>
 			<string>iOS</string>
 		</dict>
@@ -123,7 +123,7 @@
 			<key>scale</key>
 			<integer>2</integer>
 			<key>use</key>
-			<string>iPad Notification</string>
+			<string>iPad Notifications</string>
 			<key>system_version</key>
 			<string>iOS 7 - 13</string>
 		</dict>
@@ -183,7 +183,7 @@
 			<key>scale</key>
 			<integer>1</integer>
 			<key>use</key>
-			<string>iPad Notification</string>
+			<string>iPad Notifications</string>
 			<key>system_version</key>
 			<string>iOS 7 - 13</string>
 		</dict>
@@ -282,7 +282,7 @@
 			<key>scale</key>
 			<integer>2</integer>
 			<key>use</key>
-			<string>Mac</string>
+			<string>App Store</string>
 			<key>system_version</key>
 			<string>macOS</string>
 		</dict>

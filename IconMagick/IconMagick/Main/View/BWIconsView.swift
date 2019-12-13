@@ -9,7 +9,7 @@
 import Cocoa
 
 // 图标视图Tag值
-let IconImageViewTag = 100
+let IconButtonTag = 100
 
 /// 图标视图的宽高
 let IconImageViewW: CGFloat = 84.0
@@ -24,6 +24,9 @@ class BWIconsView: NSView {
             addIconImageViews(icons: icons)
         }
     }
+    
+    /// 图标点击事件
+    var iconTapHandler: ((_ index: Int) -> ())?
     
 
     override func draw(_ dirtyRect: NSRect) {
@@ -73,16 +76,23 @@ extension BWIconsView {
             let x = CGFloat(i % column) * (IconImageViewW + space_horizontal)
             let y = CGFloat(i / column) * (IconImageViewW + space_vertical) + space_vertical
             
-            let iconImageView = NSImageView(frame: NSRect(x: x, y: y, width: IconImageViewW, height: IconImageViewW))
-            iconImageView.wantsLayer = true
-            iconImageView.layer?.backgroundColor = RGBColor(52, 53, 53).cgColor
-            iconImageView.tag = IconImageViewTag + i
-            addSubview(iconImageView)
+            let iconButton = NSButton(frame: NSRect(x: x, y: y, width: IconImageViewW, height: IconImageViewW))
+            iconButton.setButtonType(.momentaryLight)
+            iconButton.isBordered = false
+            iconButton.title = ""
+            iconButton.imageScaling = .scaleProportionallyDown
+            iconButton.tag = IconButtonTag + i
+            iconButton.wantsLayer = true
+            iconButton.layer?.backgroundColor = RGBColor(52, 53, 53).cgColor
+            iconButton.toolTip = icon.use
+            iconButton.target = self
+            iconButton.action = #selector(iconTap(sender:))
+            addSubview(iconButton)
             
             let sizeLabelX: CGFloat = x - 2
             let sizeLabelW: CGFloat = IconImageViewW + 4
             let sizeLabelH: CGFloat = 14
-            let sizeLabelY: CGFloat = iconImageView.frame.minY - sizeLabelH - 2
+            let sizeLabelY: CGFloat = iconButton.frame.minY - sizeLabelH - 2
             let sizeLabel = NSText(frame: NSRect(x: sizeLabelX, y: sizeLabelY, width: sizeLabelW, height: sizeLabelH))
             sizeLabel.isEditable = false
             sizeLabel.textColor = NSColor(named: "IconImageViewSizeLabelColor")
@@ -102,10 +112,10 @@ extension BWIconsView {
         guard let icons = icons else { return }
         
         for (i, icon) in icons.enumerated() {
-            guard let iconImageView = viewWithTag(IconImageViewTag + i) as? NSImageView else {
+            guard let iconButton = viewWithTag(IconButtonTag + i) as? NSButton else {
                 return
             }
-            iconImageView.image = icon.image
+            iconButton.image = icon.image
         }
     }
     
@@ -114,16 +124,27 @@ extension BWIconsView {
         guard let icons = icons else { return }
         
         for (i, _) in icons.enumerated() {
-            guard let iconImageView = viewWithTag(IconImageViewTag + i) as? NSImageView else {
+            guard let iconButton = viewWithTag(IconButtonTag + i) as? NSButton else {
                 return
             }
             // 设置图片背景颜色
-            iconImageView.wantsLayer = true
+            iconButton.wantsLayer = true
             if isDarkMode() {
-                iconImageView.layer?.backgroundColor = RGBColor(52, 53, 53).cgColor
+                iconButton.layer?.backgroundColor = RGBColor(52, 53, 53).cgColor
             } else {
-                iconImageView.layer?.backgroundColor = RGBColor(252, 253, 253).cgColor
+                iconButton.layer?.backgroundColor = RGBColor(252, 253, 253).cgColor
             }
         }
+    }
+}
+
+
+// MARK: - Events
+
+extension BWIconsView {
+    
+    @objc func iconTap(sender: NSButton) {
+        let index = sender.tag - IconButtonTag
+        iconTapHandler?(index)
     }
 }

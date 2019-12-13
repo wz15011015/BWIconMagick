@@ -97,6 +97,42 @@ class ViewController: NSViewController {
         registerNotification()
         
         setupUI()
+        
+        iPhoneIconView.iconTapHandler = { (index: Int) in
+            guard self.saveiPhoneIconButton.isEnabled else { return }
+            guard let icons = self.iPhoneIcons else { return }
+            guard index > 0 && index < icons.count else {
+                print("Index out of bounds, index: \(index), count: \(icons.count)")
+                return
+            }
+            
+            let icon = icons[index]
+            self.saveSingleIcon(icon)
+        }
+        
+        iPadIconView.iconTapHandler = { (index: Int) in
+            guard self.saveiPadIconButton.isEnabled else { return }
+            guard let icons = self.iPadIcons else { return }
+            guard index > 0 && index < icons.count else {
+                print("Index out of bounds, index: \(index), count: \(icons.count)")
+                return
+            }
+    
+            let icon = icons[index]
+            self.saveSingleIcon(icon)
+        }
+        
+        MacIconView.iconTapHandler = { (index: Int) in
+            guard self.saveMacIconButton.isEnabled else { return }
+            guard let icons = self.MacIcons else { return }
+            guard index > 0 && index < icons.count else {
+                print("Index out of bounds, index: \(index), count: \(icons.count)")
+                return
+            }
+            
+            let icon = icons[index]
+            self.saveSingleIcon(icon)
+        }
     }
     
     private func registerNotification() {
@@ -274,6 +310,27 @@ extension ViewController {
                 return
             }
             self.save(icons: icons, to: url)
+        }
+    }
+    
+    /// 导出单个图标
+    func saveSingleIcon(_ icon: BWIcon) {
+        let panel = NSOpenPanel()
+        panel.title = NSLocalizedString("Please choose a save path", comment: "")
+        panel.message = NSLocalizedString("Save icons to", comment: "")
+        panel.prompt = NSLocalizedString("Save", comment: "")
+        panel.canChooseDirectories = true
+        panel.canChooseFiles = false
+        panel.canCreateDirectories = true
+        panel.beginSheetModal(for: NSApp.mainWindow!) { (response: NSApplication.ModalResponse) in
+            if response != .OK {
+                return
+            }
+            // Path selected
+            guard let url = panel.urls.first else {
+                return
+            }
+            self.save(icons: [icon], to: url)
         }
     }
     
