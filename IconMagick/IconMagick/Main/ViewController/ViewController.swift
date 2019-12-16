@@ -304,58 +304,66 @@ extension ViewController {
             if response != .OK {
                 return
             }
-            
             // Path selected
             guard let url = panel.urls.first else {
                 return
             }
-            self.save(icons: icons, to: url)
+
+            icons.forEach({ (icon) in
+                let icon_idiom = icon.idiom ?? ""
+                let icon_size = icon.sizeString
+                let icon_scale = icon.scaleString
+                // 生成文件名 (文件名格式为: app_icon_iPhone_20x20@2x.png)
+                let imageFileName = "app_icon_\(icon_idiom)_\(icon_size)x\(icon_size)\(icon_scale).png"
+                // 文件保存路径
+                var imageFileURL = url
+                imageFileURL.appendPathComponent(imageFileName)
+
+                self.save(image: icon.image, to: imageFileURL)
+            })
         }
     }
     
     /// 导出单个图标
     func saveSingleIcon(_ icon: BWIcon) {
-        let panel = NSOpenPanel()
-        panel.title = NSLocalizedString("Please choose a save path", comment: "")
+        let icon_idiom = icon.idiom ?? ""
+        let icon_size = icon.sizeString
+        let icon_scale = icon.scaleString
+        // 生成文件名 (文件名格式为: app_icon_iPhone_20x20@2x.png)
+        let imageFileName = "app_icon_\(icon_idiom)_\(icon_size)x\(icon_size)\(icon_scale).png"
+        
+        let panel = NSSavePanel()
         panel.message = NSLocalizedString("Save icons to", comment: "")
         panel.prompt = NSLocalizedString("Save", comment: "")
-        panel.canChooseDirectories = true
-        panel.canChooseFiles = false
+        panel.nameFieldStringValue = imageFileName
         panel.canCreateDirectories = true
+        panel.allowedFileTypes = ["png"]
         panel.beginSheetModal(for: NSApp.mainWindow!) { (response: NSApplication.ModalResponse) in
             if response != .OK {
                 return
             }
             // Path selected
-            guard let url = panel.urls.first else {
+            guard let url = panel.url else {
                 return
             }
-            self.save(icons: [icon], to: url)
+            
+            self.save(image: icon.image, to: url)
         }
     }
     
-    /// 保存图标到本地
-    /// - Parameter icons: 图标
-    /// - Parameter url: 保存路径
-    private func save(icons: [BWIcon], to url: URL) {
-        icons.forEach({ (icon) in
-            let icon_idiom = icon.idiom ?? ""
-            let icon_size = icon.sizeString
-            let icon_scale = icon.scaleString
-            // 生成文件名 (文件名格式为: app_icon_iPhone_20x20@2x.png)
-            let imageFileName = "app_icon_\(icon_idiom)_\(icon_size)x\(icon_size)\(icon_scale).png"
-            // 文件保存路径
-            var imageFileURL = url
-            imageFileURL.appendPathComponent(imageFileName)
-
-            if let image = icon.image,
-                let cgImageRef = image.cgImage(forProposedRect: nil, context: nil, hints: nil) {
-                
-                let bitmapImageRep = NSBitmapImageRep(cgImage: cgImageRef)
-                let pngData = bitmapImageRep.representation(using: NSBitmapImageRep.FileType.png, properties: [:])
-                // 保存图片到本地
-                try? pngData?.write(to: imageFileURL)
-            }
-        })
+    /// 保存图片到本地
+    /// - Parameters:
+    ///   - image: 图片
+    ///   - url: 本地路径
+    private func save(image: NSImage?, to url: URL?) {
+        if let image = image,
+            let url = url,
+            let cgImageRef = image.cgImage(forProposedRect: nil, context: nil, hints: nil) {
+            
+            let bitmapImageRep = NSBitmapImageRep(cgImage: cgImageRef)
+            let pngData = bitmapImageRep.representation(using: NSBitmapImageRep.FileType.png, properties: [:])
+            // 保存图片到本地
+            try? pngData?.write(to: url)
+        }
     }
 }
