@@ -101,7 +101,7 @@ class ViewController: NSViewController {
         iPhoneIconView.iconTapHandler = { (index: Int) in
             guard self.saveiPhoneIconButton.isEnabled else { return }
             guard let icons = self.iPhoneIcons else { return }
-            guard index > 0 && index < icons.count else {
+            guard index >= 0 && index < icons.count else {
                 print("Index out of bounds, index: \(index), count: \(icons.count)")
                 return
             }
@@ -113,7 +113,7 @@ class ViewController: NSViewController {
         iPadIconView.iconTapHandler = { (index: Int) in
             guard self.saveiPadIconButton.isEnabled else { return }
             guard let icons = self.iPadIcons else { return }
-            guard index > 0 && index < icons.count else {
+            guard index >= 0 && index < icons.count else {
                 print("Index out of bounds, index: \(index), count: \(icons.count)")
                 return
             }
@@ -125,7 +125,7 @@ class ViewController: NSViewController {
         MacIconView.iconTapHandler = { (index: Int) in
             guard self.saveMacIconButton.isEnabled else { return }
             guard let icons = self.MacIcons else { return }
-            guard index > 0 && index < icons.count else {
+            guard index >= 0 && index < icons.count else {
                 print("Index out of bounds, index: \(index), count: \(icons.count)")
                 return
             }
