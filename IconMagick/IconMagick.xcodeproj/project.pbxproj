@@ -15,6 +15,7 @@
 		062AE0942388FDB4009CABC3 /* BWIconsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062AE0932388FDB4009CABC3 /* BWIconsView.swift */; };
 		062AE09723890007009CABC3 /* BWIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062AE09623890007009CABC3 /* BWIcon.swift */; };
 		062ED37B238CF894009ECE3A /* app_icon_template.png in Resources */ = {isa = PBXBuildFile; fileRef = 062ED37A238CF894009ECE3A /* app_icon_template.png */; };
+		0686A2C623B09F6C00521016 /* NSImage+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0686A2C523B09F6C00521016 /* NSImage+Helper.swift */; };
 		06A1DA9D23ACAE6E00E7240B /* BWHUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1DA9C23ACAE6E00E7240B /* BWHUDView.swift */; };
 		06D2C13323896FF2000836CF /* ITACommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D2C13223896FF2000836CF /* ITACommon.swift */; };
 		06D45193238BC1CA00A63A2E /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 06D45192238BC1CA00A63A2E /* add.png */; };
@@ -33,6 +34,7 @@
 		062AE0932388FDB4009CABC3 /* BWIconsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BWIconsView.swift; sourceTree = "<group>"; };
 		062AE09623890007009CABC3 /* BWIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BWIcon.swift; sourceTree = "<group>"; };
 		062ED37A238CF894009ECE3A /* app_icon_template.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_icon_template.png; sourceTree = "<group>"; };
+		0686A2C523B09F6C00521016 /* NSImage+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImage+Helper.swift"; sourceTree = "<group>"; };
 		06A1DA9C23ACAE6E00E7240B /* BWHUDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BWHUDView.swift; sourceTree = "<group>"; };
 		06D2C13223896FF2000836CF /* ITACommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITACommon.swift; sourceTree = "<group>"; };
 		06D45192238BC1CA00A63A2E /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				06D2C13223896FF2000836CF /* ITACommon.swift */,
+				0686A2C523B09F6C00521016 /* NSImage+Helper.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 			files = (
 				062AE08E2388D7D7009CABC3 /* ViewController.swift in Sources */,
 				062AE09723890007009CABC3 /* BWIcon.swift in Sources */,
+				0686A2C623B09F6C00521016 /* NSImage+Helper.swift in Sources */,
 				062AE0782388D65F009CABC3 /* AppDelegate.swift in Sources */,
 				06A1DA9D23ACAE6E00E7240B /* BWHUDView.swift in Sources */,
 				06D2C13323896FF2000836CF /* ITACommon.swift in Sources */,
@@ -386,7 +390,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.BTStudio.IconMagick;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -409,7 +413,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.BTStudio.IconMagick;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
