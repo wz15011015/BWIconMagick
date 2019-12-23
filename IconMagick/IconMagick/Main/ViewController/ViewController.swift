@@ -321,6 +321,8 @@ extension ViewController {
 
                 self.save(image: icon.image, to: imageFileURL)
             })
+            
+            BWHUDView.show(message: NSLocalizedString("Success", comment: ""))
         }
     }
     
@@ -364,6 +366,8 @@ extension ViewController {
             let pngData = bitmapImageRep.representation(using: NSBitmapImageRep.FileType.png, properties: [:])
             // 保存图片到本地
             try? pngData?.write(to: url)
+            
+            BWHUDView.show(message: NSLocalizedString("Success", comment: ""))
         }
     }
 }
