@@ -271,13 +271,17 @@ extension ViewController {
 
     /// 导出图标
     @IBAction func saveIconEvent(_ sender: NSButton) {
+        var folderName = "IconMagick-icons" // 文件夹名称
         var tempIcons: [BWIcon]?
         switch sender.tag {
             case 200:
+                folderName = "IconMagick-iPhone-icons"
                 tempIcons = iPhoneIcons
             case 201:
+                folderName = "IconMagick-iPad-icons"
                 tempIcons = iPadIcons
             case 202:
+                folderName = "IconMagick-Mac-icons"
                 tempIcons = MacIcons
             default: ()
         }
@@ -292,22 +296,45 @@ extension ViewController {
         }
         
         // Choose a save path
-        let panel = NSOpenPanel()
+//        let panel = NSOpenPanel()
+//        panel.title = NSLocalizedString("Please choose a save path", comment: "")
+//        panel.message = NSLocalizedString("Save icons to", comment: "")
+//        panel.prompt = NSLocalizedString("Save", comment: "")
+//        panel.canChooseDirectories = true
+//        panel.canChooseFiles = false
+//        panel.canCreateDirectories = true
+//        panel.directoryURL = URL(string: "~/Downloads") // Open path by default
+//        panel.beginSheetModal(for: NSApp.mainWindow!) { (response: NSApplication.ModalResponse) in
+//            if response != .OK {
+//                return
+//            }
+//            // Path selected
+//            guard let url = panel.urls.first else {
+//                return
+//            }
+//        }
+        
+        
+        // Choose a save path
+        let panel = NSSavePanel()
         panel.title = NSLocalizedString("Please choose a save path", comment: "")
-        panel.message = NSLocalizedString("Save icons to", comment: "")
+        panel.message = NSLocalizedString("Save icons to folder", comment: "")
         panel.prompt = NSLocalizedString("Save", comment: "")
-        panel.canChooseDirectories = true
-        panel.canChooseFiles = false
         panel.canCreateDirectories = true
+        panel.nameFieldStringValue = folderName
         panel.directoryURL = URL(string: "~/Downloads") // Open path by default
         panel.beginSheetModal(for: NSApp.mainWindow!) { (response: NSApplication.ModalResponse) in
             if response != .OK {
                 return
             }
             // Path selected
-            guard let url = panel.urls.first else {
+            guard let url = panel.url else {
                 return
             }
+            
+            // 创建文件夹
+            let fileManager = FileManager.default
+            try? fileManager.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
 
             icons.forEach({ (icon) in
                 let icon_idiom = icon.idiom ?? ""
@@ -335,7 +362,7 @@ extension ViewController {
         let imageFileName = "app_icon_\(icon_idiom)_\(icon_size)x\(icon_size)\(icon_scale).png"
         
         let panel = NSSavePanel()
-        panel.message = NSLocalizedString("Save icons to", comment: "")
+        panel.message = NSLocalizedString("Save icons as", comment: "")
         panel.prompt = NSLocalizedString("Save", comment: "")
         panel.nameFieldStringValue = imageFileName
         panel.canCreateDirectories = true
@@ -350,6 +377,10 @@ extension ViewController {
             }
             
             self.save(image: icon.image, to: url)
+            
+            if let _ = icon.image {
+                BWHUDView.show(message: NSLocalizedString("Success", comment: ""))
+            }
         }
     }
     
@@ -366,8 +397,6 @@ extension ViewController {
             let pngData = bitmapImageRep.representation(using: NSBitmapImageRep.FileType.png, properties: [:])
             // 保存图片到本地
             try? pngData?.write(to: url)
-            
-            BWHUDView.show(message: NSLocalizedString("Success", comment: ""))
         }
     }
 }
