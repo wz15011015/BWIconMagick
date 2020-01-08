@@ -8,22 +8,19 @@
 
 import Cocoa
 
+private let IconTableColumnID = NSUserInterfaceItemIdentifier(rawValue: "TableColumnIdentifier")
+
 class ViewController: NSViewController {
     
     @IBOutlet var templateIconButton: NSButton!
     @IBOutlet var hintLabel: NSTextField!
     @IBOutlet var generateButton: NSPopUpButton!
     
-    @IBOutlet var iPhoneIconView: BWIconsView!
-    @IBOutlet var iPadIconView: BWIconsView!
-    @IBOutlet var MacIconView: BWIconsView!
-    @IBOutlet var saveiPhoneIconButton: NSButton!
-    @IBOutlet var saveiPadIconButton: NSButton!
-    @IBOutlet var saveMacIconButton: NSButton!
+    @IBOutlet var iconTableView: NSTableView!
+    @IBOutlet var iconTableColumn: NSTableColumn!
     
-    private var iPhoneIcons: [BWIcon]?
-    private var iPadIcons: [BWIcon]?
-    private var MacIcons: [BWIcon]?
+    private var dataArr: [[BWIcon]?]?
+    private var iconTypeArr: [BWIconType] = []
     private var templateIcon: NSImage? // 模板Icon
     
 
@@ -96,43 +93,9 @@ class ViewController: NSViewController {
         
         registerNotification()
         
+        setupData()
+        
         setupUI()
-        
-        iPhoneIconView.iconTapHandler = { (index: Int) in
-            guard self.saveiPhoneIconButton.isEnabled else { return }
-            guard let icons = self.iPhoneIcons else { return }
-            guard index >= 0 && index < icons.count else {
-                print("Index out of bounds, index: \(index), count: \(icons.count)")
-                return
-            }
-            
-            let icon = icons[index]
-            self.saveSingleIcon(icon)
-        }
-        
-        iPadIconView.iconTapHandler = { (index: Int) in
-            guard self.saveiPadIconButton.isEnabled else { return }
-            guard let icons = self.iPadIcons else { return }
-            guard index >= 0 && index < icons.count else {
-                print("Index out of bounds, index: \(index), count: \(icons.count)")
-                return
-            }
-    
-            let icon = icons[index]
-            self.saveSingleIcon(icon)
-        }
-        
-        MacIconView.iconTapHandler = { (index: Int) in
-            guard self.saveMacIconButton.isEnabled else { return }
-            guard let icons = self.MacIcons else { return }
-            guard index >= 0 && index < icons.count else {
-                print("Index out of bounds, index: \(index), count: \(icons.count)")
-                return
-            }
-            
-            let icon = icons[index]
-            self.saveSingleIcon(icon)
-        }
     }
     
     private func registerNotification() {
@@ -149,10 +112,17 @@ class ViewController: NSViewController {
 }
 
 
-
 // MARK: - UI
 
 extension ViewController {
+    
+    private func setupData() {
+        // 获取图标数据
+        let icons = BWIcon.loadIcons()
+        dataArr = [icons.0, icons.1, icons.2]
+        
+        iconTypeArr = [.iPhone, .iPad, .Mac]
+    }
     
     private func setupUI() {
         generateButton.insertItem(withTitle: "Icon For ----", at: 0)
@@ -163,16 +133,8 @@ extension ViewController {
         
         templateIcon = NSImage(named: "add.png")
         
-        
-        // 获取图标数据
-        let icons = BWIcon.loadIcons()
-        iPhoneIcons = icons.0
-        iPadIcons = icons.1
-        MacIcons = icons.2
-        
-        iPhoneIconView.icons = iPhoneIcons
-        iPadIconView.icons = iPadIcons
-        MacIconView.icons = MacIcons
+        iconTableColumn.identifier = IconTableColumnID
+        iconTableView.backgroundColor = NSColor.clear
     }
 }
 
@@ -240,50 +202,40 @@ extension ViewController {
             return
         }
         
+        var icons: [BWIcon]?
         // 根据模板图标,生成各种不同尺寸的图标,并显示
         switch sender.indexOfSelectedItem {
             case 0: ()
-            
             case 1:
-                iPhoneIcons?.forEach({ (icon) in
-                    icon.generateIcon(with: templateIcon)
-                })
-                iPhoneIconView.show(icons: iPhoneIcons)
-                saveiPhoneIconButton.isEnabled = true
-            
+                icons = dataArr?[0]
             case 2:
-                iPadIcons?.forEach({ (icon) in
-                    icon.generateIcon(with: templateIcon)
-                })
-                iPadIconView.show(icons: iPadIcons)
-                saveiPadIconButton.isEnabled = true
-            
+                icons = dataArr?[1]
             case 3:
-                MacIcons?.forEach({ (icon) in
-                    icon.generateIcon(with: templateIcon)
-                })
-                MacIconView.show(icons: MacIcons)
-                saveMacIconButton.isEnabled = true
-            
+                icons = dataArr?[2]
             default: ()
         }
+        icons?.forEach({ (icon) in
+            icon.generateIcon(with: templateIcon)
+        })
+        
+        // 刷新图标显示
+        iconTableView.reloadData()
     }
 
     /// 导出图标
-    @IBAction func saveIconEvent(_ sender: NSButton) {
+    func saveIconEvent(_ iconType: BWIconType) {
         var folderName = "IconMagick-icons" // 文件夹名称
         var tempIcons: [BWIcon]?
-        switch sender.tag {
-            case 200:
+        switch iconType {
+            case .iPhone:
                 folderName = "IconMagick-iPhone-icons"
-                tempIcons = iPhoneIcons
-            case 201:
+                tempIcons = dataArr?[0]
+            case .iPad:
                 folderName = "IconMagick-iPad-icons"
-                tempIcons = iPadIcons
-            case 202:
+                tempIcons = dataArr?[1]
+            default:
                 folderName = "IconMagick-Mac-icons"
-                tempIcons = MacIcons
-            default: ()
+                tempIcons = dataArr?[2]
         }
         
         guard let icons = tempIcons else {
@@ -398,5 +350,40 @@ extension ViewController {
             // 保存图片到本地
             try? pngData?.write(to: url)
         }
+    }
+}
+
+
+extension ViewController: NSTableViewDelegate, NSTableViewDataSource {
+    
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return dataArr?.count ?? 0
+    }
+    
+    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
+        return BWIconsViewH
+    }
+    
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        let columnID = tableColumn?.identifier ?? NSUserInterfaceItemIdentifier(rawValue: "")
+        if columnID == IconTableColumnID {
+            var view = tableView.makeView(withIdentifier: columnID, owner: self) as? BWIconsView
+            if view == nil {
+                view = BWIconsView()
+            }
+            view?.iconType = iconTypeArr[row]
+            view?.icons = dataArr?[row]
+            view?.show(icons: dataArr?[row])
+            
+            view?.iconSaveHandler = { (iconType) in
+                self.saveIconEvent(iconType)
+            }
+            view?.iconTapHandler = { (icon) in
+                self.saveSingleIcon(icon)
+            }
+            return view
+        }
+        
+        return nil
     }
 }

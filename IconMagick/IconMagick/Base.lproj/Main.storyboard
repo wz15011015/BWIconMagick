@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15400"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15702"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -691,6 +691,7 @@
                         <rect key="contentRect" x="196" y="240" width="832" height="260"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <value key="minSize" type="size" width="832" height="260"/>
+                        <value key="maxSize" type="size" width="832" height="760"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
@@ -750,95 +751,69 @@
                                     <action selector="generateIconEvent:" target="XfG-lQ-9wD" id="xDW-Zy-mYD"/>
                                 </connections>
                             </popUpButton>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="JPB-pi-iDc">
-                                <rect key="frame" x="220" y="20" width="562" height="680"/>
-                                <subviews>
-                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="ujB-Vk-XFr" customClass="BWIconsView" customModule="IconMagick" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="474" width="452" height="206"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="452" id="2rf-hM-FkA"/>
-                                            <constraint firstAttribute="height" constant="206" id="XgE-AV-VMn"/>
-                                        </constraints>
-                                    </customView>
-                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="Sd7-Wa-Nc3" customClass="BWIconsView" customModule="IconMagick" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="248" width="452" height="206"/>
-                                    </customView>
-                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="ou0-E5-Gt1" customClass="BWIconsView" customModule="IconMagick" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="22" width="452" height="206"/>
-                                    </customView>
-                                    <button verticalHuggingPriority="750" tag="202" translatesAutoresizingMaskIntoConstraints="NO" id="U4R-EZ-dGL">
-                                        <rect key="frame" x="496" y="108" width="70" height="32"/>
-                                        <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EVg-S0-fRX">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="saveIconEvent:" target="XfG-lQ-9wD" id="5eY-ig-2XD"/>
-                                        </connections>
-                                    </button>
-                                    <button verticalHuggingPriority="750" tag="201" translatesAutoresizingMaskIntoConstraints="NO" id="xwf-Z3-TaN">
-                                        <rect key="frame" x="496" y="334" width="70" height="32"/>
-                                        <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="HaP-7p-3yQ">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="saveIconEvent:" target="XfG-lQ-9wD" id="pMc-wd-rql"/>
-                                        </connections>
-                                    </button>
-                                    <button verticalHuggingPriority="750" tag="200" translatesAutoresizingMaskIntoConstraints="NO" id="xTI-Eq-3zY">
-                                        <rect key="frame" x="496" y="560" width="70" height="32"/>
-                                        <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hKC-r8-0zv">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="saveIconEvent:" target="XfG-lQ-9wD" id="y6d-qO-EoS"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="Sd7-Wa-Nc3" firstAttribute="top" secondItem="ujB-Vk-XFr" secondAttribute="bottom" constant="20" id="03f-Fa-H5U"/>
-                                    <constraint firstItem="U4R-EZ-dGL" firstAttribute="leading" secondItem="ou0-E5-Gt1" secondAttribute="trailing" constant="50" id="2fK-0S-jOk"/>
-                                    <constraint firstItem="ujB-Vk-XFr" firstAttribute="leading" secondItem="JPB-pi-iDc" secondAttribute="leading" id="34k-ng-sw1"/>
-                                    <constraint firstItem="ujB-Vk-XFr" firstAttribute="top" secondItem="JPB-pi-iDc" secondAttribute="top" id="IzZ-bF-8Yy"/>
-                                    <constraint firstItem="U4R-EZ-dGL" firstAttribute="centerY" secondItem="ou0-E5-Gt1" secondAttribute="centerY" id="MTb-r8-HHT"/>
-                                    <constraint firstItem="Sd7-Wa-Nc3" firstAttribute="leading" secondItem="ujB-Vk-XFr" secondAttribute="leading" id="Mdn-VX-WFs"/>
-                                    <constraint firstItem="Sd7-Wa-Nc3" firstAttribute="width" secondItem="ujB-Vk-XFr" secondAttribute="width" id="MvB-7l-34c"/>
-                                    <constraint firstItem="ou0-E5-Gt1" firstAttribute="leading" secondItem="ujB-Vk-XFr" secondAttribute="leading" id="NWr-3d-Uc1"/>
-                                    <constraint firstItem="ou0-E5-Gt1" firstAttribute="top" secondItem="Sd7-Wa-Nc3" secondAttribute="bottom" constant="20" id="PPk-8R-7JZ"/>
-                                    <constraint firstItem="xwf-Z3-TaN" firstAttribute="centerY" secondItem="Sd7-Wa-Nc3" secondAttribute="centerY" id="XGZ-EY-Q0w"/>
-                                    <constraint firstItem="Sd7-Wa-Nc3" firstAttribute="height" secondItem="ujB-Vk-XFr" secondAttribute="height" id="Xhg-Fd-KQT"/>
-                                    <constraint firstItem="ou0-E5-Gt1" firstAttribute="width" secondItem="ujB-Vk-XFr" secondAttribute="width" id="giO-My-frl"/>
-                                    <constraint firstItem="ou0-E5-Gt1" firstAttribute="height" secondItem="ujB-Vk-XFr" secondAttribute="height" id="hzA-WJ-bL8"/>
-                                    <constraint firstItem="xwf-Z3-TaN" firstAttribute="leading" secondItem="Sd7-Wa-Nc3" secondAttribute="trailing" constant="50" id="p9r-gZ-jXc"/>
-                                    <constraint firstItem="xTI-Eq-3zY" firstAttribute="leading" secondItem="ujB-Vk-XFr" secondAttribute="trailing" constant="50" id="rYj-AL-IKy"/>
-                                    <constraint firstItem="xTI-Eq-3zY" firstAttribute="centerY" secondItem="ujB-Vk-XFr" secondAttribute="centerY" id="wM7-mo-i8P"/>
-                                </constraints>
-                            </customView>
+                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="41" horizontalPageScroll="10" verticalLineScroll="41" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VxE-GT-jwL">
+                                <rect key="frame" x="222" y="20" width="590" height="680"/>
+                                <clipView key="contentView" drawsBackground="NO" id="HUe-uq-pvm">
+                                    <rect key="frame" x="0.0" y="0.0" width="590" height="680"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="ahN-zW-Chc">
+                                            <rect key="frame" x="0.0" y="0.0" width="590" height="680"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <size key="intercellSpacing" width="3" height="24"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                            <tableColumns>
+                                                <tableColumn width="587" minWidth="40" maxWidth="1000" id="Ann-xk-y5I">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
+                                                        <font key="font" metaFont="label" size="11"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="xq4-Fh-iVM">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                </tableColumn>
+                                            </tableColumns>
+                                            <connections>
+                                                <outlet property="dataSource" destination="XfG-lQ-9wD" id="PEg-lB-cQg"/>
+                                                <outlet property="delegate" destination="XfG-lQ-9wD" id="Ht2-0V-BI4"/>
+                                            </connections>
+                                        </tableView>
+                                    </subviews>
+                                    <nil key="backgroundColor"/>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="Dyx-Fr-Ypa">
+                                    <rect key="frame" x="0.0" y="664" width="560" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="84N-qM-XRu">
+                                    <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="JPB-pi-iDc" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="IJA-xk-HsD"/>
                             <constraint firstItem="08n-Tt-7ML" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="J18-Yc-ygx"/>
-                            <constraint firstItem="JPB-pi-iDc" firstAttribute="leading" secondItem="08n-Tt-7ML" secondAttribute="trailing" constant="50" id="Lzt-9M-ywQ"/>
+                            <constraint firstAttribute="bottom" secondItem="VxE-GT-jwL" secondAttribute="bottom" constant="20" id="Mee-Vq-kcw"/>
                             <constraint firstItem="08n-Tt-7ML" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="50" id="N9O-HD-5yp"/>
-                            <constraint firstAttribute="bottom" secondItem="JPB-pi-iDc" secondAttribute="bottom" constant="20" id="ZDC-SH-fw5"/>
+                            <constraint firstItem="VxE-GT-jwL" firstAttribute="leading" secondItem="mNv-Kg-eX6" secondAttribute="trailing" constant="40" id="X4N-Zr-VAa"/>
+                            <constraint firstAttribute="trailing" secondItem="VxE-GT-jwL" secondAttribute="trailing" constant="20" id="ZaI-rc-gtr"/>
                             <constraint firstItem="mNv-Kg-eX6" firstAttribute="top" secondItem="08n-Tt-7ML" secondAttribute="bottom" constant="10" id="Zh1-OL-MZY"/>
                             <constraint firstItem="mNv-Kg-eX6" firstAttribute="centerX" secondItem="08n-Tt-7ML" secondAttribute="centerX" id="d2S-9R-yAh"/>
                             <constraint firstItem="Ikk-Pl-CTC" firstAttribute="top" secondItem="08n-Tt-7ML" secondAttribute="bottom" constant="34" id="kRi-mG-moF"/>
-                            <constraint firstAttribute="trailing" secondItem="JPB-pi-iDc" secondAttribute="trailing" constant="50" id="thw-y5-gYn"/>
+                            <constraint firstItem="VxE-GT-jwL" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="lEq-r7-jxW"/>
                             <constraint firstItem="Ikk-Pl-CTC" firstAttribute="centerX" secondItem="08n-Tt-7ML" secondAttribute="centerX" id="xx7-pD-XAk"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="MacIconView" destination="ou0-E5-Gt1" id="ho1-NR-T7J"/>
                         <outlet property="generateButton" destination="Ikk-Pl-CTC" id="G73-RI-z2g"/>
                         <outlet property="hintLabel" destination="mNv-Kg-eX6" id="pQE-dL-mOP"/>
-                        <outlet property="iPadIconView" destination="Sd7-Wa-Nc3" id="blS-Gc-ujS"/>
-                        <outlet property="iPhoneIconView" destination="ujB-Vk-XFr" id="uHE-a2-XXH"/>
-                        <outlet property="saveMacIconButton" destination="U4R-EZ-dGL" id="bl1-Vg-wtJ"/>
-                        <outlet property="saveiPadIconButton" destination="xwf-Z3-TaN" id="kf7-uk-ueI"/>
-                        <outlet property="saveiPhoneIconButton" destination="xTI-Eq-3zY" id="hP2-nz-843"/>
+                        <outlet property="iconTableColumn" destination="Ann-xk-y5I" id="Yxi-sF-CNN"/>
+                        <outlet property="iconTableView" destination="ahN-zW-Chc" id="CCm-Le-lqR"/>
                         <outlet property="templateIconButton" destination="08n-Tt-7ML" id="mbN-hC-jFe"/>
                     </connections>
                 </viewController>
