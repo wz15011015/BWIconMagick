@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  IconMagick
 //
-//  Created by hadlinks on 2019/11/23.
+//  Created by wangzhi on 2019/11/23.
 //  Copyright © 2019 BTStudio. All rights reserved.
 //
 

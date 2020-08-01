@@ -2,7 +2,7 @@
 //  ITACommon.swift
 //  ImageTintAssistant-Mac
 //
-//  Created by hadlinks on 2019/11/21.
+//  Created by wangzhi on 2019/11/21.
 //  Copyright © 2019 BTStudio. All rights reserved.
 //
 

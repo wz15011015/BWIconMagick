@@ -1,13 +1,24 @@
 //
 //  BWHUDView.swift
-//  IconMagick
 //
-//  Created by hadlinks on 2019/12/20.
+//  Created by wangzhi on 2019/12/20.
 //  Copyright © 2019 BTStudio. All rights reserved.
 //
 
 import Foundation
 import Cocoa
+
+
+// MARK: - 颜色
+
+private func BWRGBAColor(_ red: CGFloat, _ green: CGFloat, _ blue: CGFloat, _ alpha: CGFloat) -> NSColor {
+    return NSColor(red: red / 255.0, green: green / 255.0, blue: blue / 255.0, alpha: alpha)
+}
+
+private func BWRGBColor(_ red: CGFloat, _ green: CGFloat, _ blue: CGFloat) -> NSColor {
+    return BWRGBAColor(red, green, blue, 1.0)
+}
+
 
 private let BWHUDViewTag = 980665
 
@@ -16,7 +27,6 @@ private let BWHUDViewWidth: CGFloat = 136
 
 /// 提示消息Label的最大高度
 private let BWHUDMessageMaxHeight: CGFloat = 40
-
 
 /// HUD显示状态
 enum BWHUDStatus {
@@ -31,7 +41,7 @@ class BWHUDView: NSView {
     /// 状态图标
     private lazy var statusIcon: NSImageView = {
         let imageView = NSImageView()
-        imageView.image = NSImage(named: "HUD_status_success")
+        imageView.image = bundleImage(named: "BWHUD_status_success")
         return imageView
     }()
     
@@ -41,6 +51,7 @@ class BWHUDView: NSView {
         text.textColor = NSColor.white
         text.font = NSFont.systemFont(ofSize: 17)
         text.alignment = .center
+        text.isSelectable = false
         text.backgroundColor = NSColor.clear
         text.isVerticallyResizable = true
         return text
@@ -51,9 +62,9 @@ class BWHUDView: NSView {
         didSet {
             switch status {
                 case .success:
-                statusIcon.image = NSImage(named: "HUD_status_success")
+                statusIcon.image = bundleImage(named: "BWHUD_status_success")
                 default:
-                statusIcon.image = NSImage(named: "HUD_status_failure")
+                statusIcon.image = bundleImage(named: "BWHUD_status_failure")
             }
         }
     }
@@ -119,11 +130,11 @@ class BWHUDView: NSView {
         super.draw(dirtyRect)
 
         // Dark Mode 适配
-        var color = RGBAColor(88, 88, 88, 0.99)
+        var color = BWRGBAColor(88, 88, 88, 0.99)
         if appearanceIsDarkMode() {
-            color = RGBAColor(88, 88, 88, 0.99)
+            color = BWRGBAColor(88, 88, 88, 0.99)
         } else {
-            color = RGBAColor(88, 88, 88, 0.8)
+            color = BWRGBAColor(88, 88, 88, 0.8)
         }
         wantsLayer = true
         layer?.backgroundColor = color.cgColor
@@ -137,6 +148,11 @@ class BWHUDView: NSView {
     /// - Parameter type: 显示类型, 默认为Success
     /// - Parameter delay: 几秒后隐藏, 默认时长为2秒
     class func show(message msg: String = "", type status: BWHUDStatus = .success, hideDelay delay: TimeInterval = 1.2) {
+        // 显示新的HUD前,先移除一下HUD,确保不会重复显示
+        if BWHUDView.isShowing {
+            BWHUDView.dismiss()
+        }
+        
         guard let mainWindow = NSApp.mainWindow else { return }
         
         // 1. 初始化
@@ -185,7 +201,7 @@ extension BWHUDView {
         let height = BWHUDViewWidth
         frame = NSRect(x: (windowW - width) / 2.0, y: (windowH - height) / 2.0, width: width, height: height)
         wantsLayer = true
-        layer?.backgroundColor = RGBColor(88, 88, 88).cgColor
+        layer?.backgroundColor = BWRGBColor(88, 88, 88).cgColor
         layer?.cornerRadius = 6
         
         // 2. 添加子控件
@@ -229,6 +245,37 @@ extension BWHUDView {
     /// 打开本应用程序 / 切换至本应用程序
     /// - Parameter notification: 通知
     @objc func applicationWillBecomeActive(_ notification: Notification) {
+        
+    }
+}
 
+
+// MARK: - Tool Methods
+
+extension BWHUDView {
+    
+    /// 加载Bundle里的图片资源
+    /// - Parameter name: 图片名称
+    /// - Returns: 图片
+    func bundleImage(named name: String) -> NSImage? {
+        guard let bundlePath = Bundle.main.path(forResource: "BWHUDResource", ofType: "bundle"),
+              let bundle = Bundle(path: bundlePath) else {
+            return nil
+        }
+        
+        var imageName = name
+        let doubleImageName = name + "@2x"
+        let tribleImageName = name + "@3x"
+        // 屏幕倍数(几倍屏)
+        let screenScale = NSScreen.main?.backingScaleFactor ?? 1.0
+        if screenScale == 2.0 {
+            imageName = doubleImageName
+        } else if screenScale == 3.0 {
+            imageName = tribleImageName
+        }
+        guard let filePath = bundle.path(forResource: imageName, ofType: "png") else {
+            return nil
+        }
+        return NSImage(contentsOfFile: filePath)
     }
 }

@@ -16,7 +16,8 @@
 		062AE09723890007009CABC3 /* BWIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062AE09623890007009CABC3 /* BWIcon.swift */; };
 		062ED37B238CF894009ECE3A /* app_icon_template.png in Resources */ = {isa = PBXBuildFile; fileRef = 062ED37A238CF894009ECE3A /* app_icon_template.png */; };
 		0686A2C623B09F6C00521016 /* NSImage+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0686A2C523B09F6C00521016 /* NSImage+Helper.swift */; };
-		06A1DA9D23ACAE6E00E7240B /* BWHUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A1DA9C23ACAE6E00E7240B /* BWHUDView.swift */; };
+		06954FBE24D4F25B00B6FAF4 /* BWHUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06954FBC24D4F25B00B6FAF4 /* BWHUDView.swift */; };
+		06954FBF24D4F25B00B6FAF4 /* BWHUDResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 06954FBD24D4F25B00B6FAF4 /* BWHUDResource.bundle */; };
 		06D2C13323896FF2000836CF /* ITACommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D2C13223896FF2000836CF /* ITACommon.swift */; };
 		06D45193238BC1CA00A63A2E /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 06D45192238BC1CA00A63A2E /* add.png */; };
 		06EE09C3238F739800E79576 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06EE09C5238F739800E79576 /* Localizable.strings */; };
@@ -35,7 +36,8 @@
 		062AE09623890007009CABC3 /* BWIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BWIcon.swift; sourceTree = "<group>"; };
 		062ED37A238CF894009ECE3A /* app_icon_template.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_icon_template.png; sourceTree = "<group>"; };
 		0686A2C523B09F6C00521016 /* NSImage+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImage+Helper.swift"; sourceTree = "<group>"; };
-		06A1DA9C23ACAE6E00E7240B /* BWHUDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BWHUDView.swift; sourceTree = "<group>"; };
+		06954FBC24D4F25B00B6FAF4 /* BWHUDView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWHUDView.swift; sourceTree = "<group>"; };
+		06954FBD24D4F25B00B6FAF4 /* BWHUDResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BWHUDResource.bundle; sourceTree = "<group>"; };
 		06D2C13223896FF2000836CF /* ITACommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITACommon.swift; sourceTree = "<group>"; };
 		06D45192238BC1CA00A63A2E /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 		06EE09BF238F6DD200E79576 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				062AE07D2388D664009CABC3 /* Main.storyboard */,
 				062AE08A2388D7D7009CABC3 /* Main */,
 				062AE0892388D7D1009CABC3 /* Common */,
+				06954FBA24D4F25B00B6FAF4 /* Vendors */,
 				062AE0872388D7CC009CABC3 /* Resources */,
 				062AE07B2388D664009CABC3 /* Assets.xcassets */,
 				062AE0802388D664009CABC3 /* Info.plist */,
@@ -128,7 +131,6 @@
 			isa = PBXGroup;
 			children = (
 				062AE0932388FDB4009CABC3 /* BWIconsView.swift */,
-				06A1DA9C23ACAE6E00E7240B /* BWHUDView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -147,6 +149,23 @@
 				062AE09623890007009CABC3 /* BWIcon.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		06954FBA24D4F25B00B6FAF4 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				06954FBB24D4F25B00B6FAF4 /* BWHUDView */,
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
+		06954FBB24D4F25B00B6FAF4 /* BWHUDView */ = {
+			isa = PBXGroup;
+			children = (
+				06954FBC24D4F25B00B6FAF4 /* BWHUDView.swift */,
+				06954FBD24D4F25B00B6FAF4 /* BWHUDResource.bundle */,
+			);
+			path = BWHUDView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +229,7 @@
 			files = (
 				06EE09C3238F739800E79576 /* Localizable.strings in Resources */,
 				062AE0922388DF65009CABC3 /* BWIconsInfo.plist in Resources */,
+				06954FBF24D4F25B00B6FAF4 /* BWHUDResource.bundle in Resources */,
 				062AE07C2388D664009CABC3 /* Assets.xcassets in Resources */,
 				06D45193238BC1CA00A63A2E /* add.png in Resources */,
 				062ED37B238CF894009ECE3A /* app_icon_template.png in Resources */,
@@ -228,9 +248,9 @@
 				062AE09723890007009CABC3 /* BWIcon.swift in Sources */,
 				0686A2C623B09F6C00521016 /* NSImage+Helper.swift in Sources */,
 				062AE0782388D65F009CABC3 /* AppDelegate.swift in Sources */,
-				06A1DA9D23ACAE6E00E7240B /* BWHUDView.swift in Sources */,
 				06D2C13323896FF2000836CF /* ITACommon.swift in Sources */,
 				062AE0942388FDB4009CABC3 /* BWIconsView.swift in Sources */,
+				06954FBE24D4F25B00B6FAF4 /* BWHUDView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
