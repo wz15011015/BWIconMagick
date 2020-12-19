@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  IconMagick
+
+  Created by hadlinks on 2020/12/19.
+  Copyright © 2020 BTStudio. All rights reserved.
+*/
+
+NSHumanReadableCopyright = "Copyright © 2015-2020 奔腾工作室. All rights reserved. \n\nhttps://github.com/wz15011015/BWIconMagick";

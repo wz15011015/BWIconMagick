@@ -20,6 +20,7 @@
 		06954FBF24D4F25B00B6FAF4 /* BWHUDResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 06954FBD24D4F25B00B6FAF4 /* BWHUDResource.bundle */; };
 		06D2C13323896FF2000836CF /* ITACommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D2C13223896FF2000836CF /* ITACommon.swift */; };
 		06D45193238BC1CA00A63A2E /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 06D45192238BC1CA00A63A2E /* add.png */; };
+		06D81FD4258DDCD600EB4C5A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06D81FD6258DDCD600EB4C5A /* InfoPlist.strings */; };
 		06EE09C3238F739800E79576 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06EE09C5238F739800E79576 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,8 @@
 		06954FBD24D4F25B00B6FAF4 /* BWHUDResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BWHUDResource.bundle; sourceTree = "<group>"; };
 		06D2C13223896FF2000836CF /* ITACommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITACommon.swift; sourceTree = "<group>"; };
 		06D45192238BC1CA00A63A2E /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
+		06D81FD5258DDCD600EB4C5A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		06D81FD7258DDCDA00EB4C5A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		06EE09BF238F6DD200E79576 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		06EE09C0238F6DF700E79576 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		06EE09C4238F739800E79576 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -86,6 +89,7 @@
 				062AE07B2388D664009CABC3 /* Assets.xcassets */,
 				062AE0802388D664009CABC3 /* Info.plist */,
 				06EE09C5238F739800E79576 /* Localizable.strings */,
+				06D81FD6258DDCD600EB4C5A /* InfoPlist.strings */,
 			);
 			path = IconMagick;
 			sourceTree = "<group>";
@@ -228,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06EE09C3238F739800E79576 /* Localizable.strings in Resources */,
+				06D81FD4258DDCD600EB4C5A /* InfoPlist.strings in Resources */,
 				062AE0922388DF65009CABC3 /* BWIconsInfo.plist in Resources */,
 				06954FBF24D4F25B00B6FAF4 /* BWHUDResource.bundle in Resources */,
 				062AE07C2388D664009CABC3 /* Assets.xcassets in Resources */,
@@ -265,6 +270,15 @@
 				06EE09C0238F6DF700E79576 /* zh-Hans */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		06D81FD6258DDCD600EB4C5A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				06D81FD5258DDCD600EB4C5A /* en */,
+				06D81FD7258DDCDA00EB4C5A /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		06EE09C5238F739800E79576 /* Localizable.strings */ = {
