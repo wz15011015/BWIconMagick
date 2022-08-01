@@ -220,6 +220,13 @@ extension BWIconsView {
     
     /// 图标图片背景色适配黑暗模式
     func adaptationDarkModeFor(icons: [BWIcon]?) {
+        // 类型名称颜色
+        if isDarkMode() {
+            typeNameLabel.textColor = NSColor.white
+        } else {
+            typeNameLabel.textColor = NSColor.black
+        }
+        
         guard let icons = icons else { return }
         
         for (i, _) in icons.enumerated() {
