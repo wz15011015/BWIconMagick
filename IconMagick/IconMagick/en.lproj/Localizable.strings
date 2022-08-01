@@ -8,12 +8,12 @@
 
 "Click to add template icon" = "Click to add template icon";
 
-"Meet 1024x1024 size" = "Meet 1024x1024 size";
+"Meet 1024x1024(px/pt) size" = "Meet 1024x1024(px/pt) size";
 
 "Please choose a save path" = "Please choose a save path";
-"Please select a template icon (requires size 1024x1024)" = "Please select a template icon (requires size 1024x1024)";
+"Please select a template icon (requires size 1024x1024 px/pt)" = "Please select a template icon (requires size 1024x1024 px/pt)";
 
-"Require 1024x1024 size" = "Require 1024x1024 size";
+"Require 1024x1024(px/pt) size" = "Require 1024x1024(px/pt) size";
 
 "Save" = "Save";
 "Save icons as" = "Save icons as";

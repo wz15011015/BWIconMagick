@@ -78,7 +78,7 @@
 "DVo-aG-piG.title" = "Close";
 
 /* Class = "NSTextFieldCell"; title = "Require 1024x1024 size"; ObjectID = "DdB-dg-x8D"; */
-"DdB-dg-x8D.title" = "Require 1024x1024 size";
+"DdB-dg-x8D.title" = "Require 1024x1024(px/pt) size";
 
 /* Class = "NSMenuItem"; title = "Spelling and Grammar"; ObjectID = "Dv1-io-Yv7"; */
 "Dv1-io-Yv7.title" = "Spelling and Grammar";
@@ -294,7 +294,7 @@
 "dRJ-4n-Yzg.title" = "Undo";
 
 /* Class = "NSMenuItem"; title = "Icon For Mac"; ObjectID = "dny-b3-eQD"; */
-"dny-b3-eQD.title" = "Icon For Mac";
+"dny-b3-eQD.title" = "Icon For Mac 💻";
 
 /* Class = "NSMenuItem"; title = "Icon For iPad"; ObjectID = "g3X-KU-vzg"; */
 "g3X-KU-vzg.title" = "Icon For iPad";
@@ -402,7 +402,7 @@
 "wpr-3q-Mcd.title" = "Help";
 
 /* Class = "NSMenuItem"; title = "Icon For iPhone"; ObjectID = "x1F-Ib-Apu"; */
-"x1F-Ib-Apu.title" = "Icon For iPhone";
+"x1F-Ib-Apu.title" = "Icon For iPhone📱";
 
 /* Class = "NSMenuItem"; title = "Copy"; ObjectID = "x3v-GG-iWU"; */
 "x3v-GG-iWU.title" = "Copy";

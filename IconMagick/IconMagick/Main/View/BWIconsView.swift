@@ -26,8 +26,15 @@ private let IconImageViewSpaceHorizontal: CGFloat = 8.0
 /// 图标的竖直间距
 private let IconImageViewSpaceVertical: CGFloat = 18.0
 
+/// 类型图片的宽高
+private let TypeImageViewW: CGFloat = 36.0
+/// 类型图片底部间距
+private let TypeImageViewBottomSpace: CGFloat = 8.0
+/// 类型名称的高
+private let TypeNameLabelH: CGFloat = 18.0
+
 /// 视图的高度
-let BWIconsViewH: CGFloat = 206
+let BWIconsViewH: CGFloat = ((IconImageViewW * 2) + (IconImageViewSpaceVertical * 2) + TypeImageViewW + TypeImageViewBottomSpace)
 
 
 class BWIconsView: NSView {
@@ -43,6 +50,25 @@ class BWIconsView: NSView {
         let button = NSButton(title: NSLocalizedString("Save", comment: ""), target: nil, action: #selector(saveEvent))
         button.isEnabled = false
         return button
+    }()
+    
+    /// 类型图片
+    private var typeImageView: NSImageView = {
+        let view = NSImageView()
+        return view
+    }()
+    
+    /// 类型名称
+    private var typeNameLabel: NSText = {
+        let text = NSText()
+        text.textColor = NSColor.white
+        text.font = NSFont.systemFont(ofSize: 17)
+//        text.alignment = .left
+        text.isSelectable = false
+        text.backgroundColor = NSColor.clear
+//        text.isVerticallyResizable = true
+        text.minSize = CGSize(width: 80.0, height: TypeNameLabelH)
+        return text
     }()
     
     var icons: [BWIcon]? {
@@ -100,12 +126,18 @@ extension BWIconsView {
         
         addSubview(iconView)
         addSubview(saveButton)
+        addSubview(typeImageView)
+        addSubview(typeNameLabel)
         
         // 2行 5列
         let iconViewW = (IconImageViewW * 5) + (IconImageViewSpaceHorizontal * 4)
         let iconViewH = (IconImageViewW * 2) + (IconImageViewSpaceVertical * 2)
         iconView.frame = CGRect(x: 0, y: 0, width: iconViewW, height: iconViewH)
         saveButton.frame = CGRect(x: iconViewW + 50, y: (iconViewH - 32) / 2, width: 70, height: 32)
+        
+        // 类型图片&名称
+        typeImageView.frame = CGRect(x: 0, y: BWIconsViewH - TypeImageViewW, width: TypeImageViewW, height: TypeImageViewW)
+        typeNameLabel.frame = CGRect(x: TypeImageViewW + 5, y: typeImageView.frame.minY + (TypeImageViewW - TypeNameLabelH) * 0.5, width: 80.0, height: TypeNameLabelH)
     }
     
     /// 添加图标视图
@@ -158,6 +190,19 @@ extension BWIconsView {
     /// 显示图标
     /// - Parameter icons: 图标数组
     func show(icons: [BWIcon]?) {
+        // 显示类型图片及名称
+        switch iconType {
+            case .iPhone:
+                typeImageView.image = NSImage(named: "type_iPhone_icon")
+                typeNameLabel.string = "iPhone"
+            case .iPad:
+                typeImageView.image = NSImage(named: "type_iPad_icon")
+                typeNameLabel.string = "iPad"
+            case .Mac:
+                typeImageView.image = NSImage(named: "type_Mac_icon")
+                typeNameLabel.string = "Mac"
+        }
+        
         guard let icons = icons else { return }
 
         // 判断是否生成了图片,如果已生成图片,则保存按钮可以点击

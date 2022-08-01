@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17506"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -679,7 +679,7 @@
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="64"/>
+            <point key="canvasLocation" x="76" y="60"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -688,10 +688,11 @@
                     <window key="window" title="IconMagick" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="832" height="260"/>
+                        <rect key="contentRect" x="196" y="240" width="400" height="200"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <value key="minSize" type="size" width="832" height="260"/>
-                        <value key="maxSize" type="size" width="832" height="760"/>
+                        <value key="minSize" type="size" width="856" height="320"/>
+                        <value key="maxSize" type="size" width="880" height="880"/>
+                        <value key="maxFullScreenContentSize" type="size" width="880" height="880"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
@@ -709,7 +710,7 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="IconMagick" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="832" height="720"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1139" height="720"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="08n-Tt-7ML">
@@ -727,23 +728,23 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mNv-Kg-eX6">
-                                <rect key="frame" x="36" y="274" width="148" height="16"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Require 1024x1024 size" id="DdB-dg-x8D">
-                                    <font key="font" metaFont="system"/>
+                                <rect key="frame" x="20" y="275" width="181" height="15"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Require 1024x1024(px/pt) size" id="DdB-dg-x8D">
+                                    <font key="font" metaFont="systemMedium" size="12"/>
                                     <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ikk-Pl-CTC">
-                                <rect key="frame" x="44" y="242" width="134" height="25"/>
-                                <popUpButtonCell key="cell" type="push" title="Icon For Mac" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="dny-b3-eQD" id="CPa-sO-Yit">
+                                <rect key="frame" x="34" y="242" width="153" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="Icon For iPhone📱" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="x1F-Ib-Apu" id="CPa-sO-Yit">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="wKq-qs-Ifq">
                                         <items>
-                                            <menuItem title="Icon For iPhone" id="x1F-Ib-Apu"/>
+                                            <menuItem title="Icon For iPhone📱" state="on" id="x1F-Ib-Apu"/>
                                             <menuItem title="Icon For iPad" id="g3X-KU-vzg"/>
-                                            <menuItem title="Icon For Mac" state="on" id="dny-b3-eQD"/>
+                                            <menuItem title="Icon For Mac💻" id="dny-b3-eQD"/>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
@@ -752,19 +753,19 @@
                                 </connections>
                             </popUpButton>
                             <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="41" horizontalPageScroll="10" verticalLineScroll="41" verticalPageScroll="10" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VxE-GT-jwL">
-                                <rect key="frame" x="222" y="20" width="590" height="680"/>
+                                <rect key="frame" x="239" y="20" width="880" height="680"/>
                                 <clipView key="contentView" drawsBackground="NO" id="HUe-uq-pvm">
-                                    <rect key="frame" x="0.0" y="0.0" width="590" height="680"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="880" height="680"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="ahN-zW-Chc">
-                                            <rect key="frame" x="0.0" y="0.0" width="590" height="680"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="880" height="680"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="24"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn width="558" minWidth="40" maxWidth="1000" id="Ann-xk-y5I">
+                                                <tableColumn width="848" minWidth="40" maxWidth="1000" id="Ann-xk-y5I">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -818,7 +819,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="956"/>
+            <point key="canvasLocation" x="76" y="927"/>
         </scene>
     </scenes>
     <resources>

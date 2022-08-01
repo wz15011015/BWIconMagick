@@ -8,12 +8,12 @@
 
 "Click to add template icon" = "点击以添加模板图标";
 
-"Meet 1024x1024 size" = "满足 1024x1024 大小";
+"Meet 1024x1024(px/pt) size" = "满足1024x1024(像素/点)大小";
 
 "Please choose a save path" = "请选择保存路径";
-"Please select a template icon (requires size 1024x1024)" = "请选择模板图标（要求大小为1024x1024）";
+"Please select a template icon (requires size 1024x1024 px/pt)" = "请选择模板图标（要求大小为1024x1024像素/点）";
 
-"Require 1024x1024 size" = "需要 1024x1024 大小";
+"Require 1024x1024(px/pt) size" = "需要1024x1024(像素/点)大小";
 
 "Save" = "保存";
 "Save icons as" = "保存图标为";

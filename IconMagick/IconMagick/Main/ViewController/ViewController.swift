@@ -125,7 +125,7 @@ extension ViewController {
     }
     
     private func setupUI() {
-        generateButton.insertItem(withTitle: "Icon For ----", at: 0)
+        generateButton.insertItem(withTitle: "Icon For        ↓↓", at: 0)
         generateButton.selectItem(at: 0)
         
         // 设置按钮的鼠标悬停提示文字
@@ -155,7 +155,7 @@ extension ViewController {
     @IBAction func addIconEvent(_ sender: NSButton) {
         // 文件打开面板
         let panel = NSOpenPanel()
-        panel.message = NSLocalizedString("Please select a template icon (requires size 1024x1024)", comment: "")
+        panel.message = NSLocalizedString("Please select a template icon (requires size 1024x1024 px/pt)", comment: "")
         panel.prompt = NSLocalizedString("Select", comment: "") // 自定义确定按钮文字
         panel.allowedFileTypes = ["png"]
         panel.allowsOtherFileTypes = false
@@ -185,10 +185,10 @@ extension ViewController {
                 }
                 
                 if pixelSize.equalTo(NSSize(width: 1024, height: 1024)) {
-                    self.hintLabel.stringValue = NSLocalizedString("Meet 1024x1024 size", comment: "")
+                    self.hintLabel.stringValue = NSLocalizedString("Meet 1024x1024(px/pt) size", comment: "")
                     self.hintLabel.textColor = NSColor.systemGreen
                 } else {
-                    self.hintLabel.stringValue = NSLocalizedString("Require 1024x1024 size", comment: "")
+                    self.hintLabel.stringValue = NSLocalizedString("Require 1024x1024(px/pt) size", comment: "")
                     self.hintLabel.textColor = NSColor.systemRed
                 }
             }
@@ -224,17 +224,17 @@ extension ViewController {
 
     /// 导出图标
     func saveIconEvent(_ iconType: BWIconType) {
-        var folderName = "IconMagick-icons" // 文件夹名称
+        var folderName = "IconMagick-Icons" // 文件夹名称
         var tempIcons: [BWIcon]?
         switch iconType {
             case .iPhone:
-                folderName = "IconMagick-iPhone-icons"
+                folderName = "IconMagick-iPhone-Icons"
                 tempIcons = dataArr?[0]
             case .iPad:
-                folderName = "IconMagick-iPad-icons"
+                folderName = "IconMagick-iPad-Icons"
                 tempIcons = dataArr?[1]
             default:
-                folderName = "IconMagick-Mac-icons"
+                folderName = "IconMagick-Mac-Icons"
                 tempIcons = dataArr?[2]
         }
         
