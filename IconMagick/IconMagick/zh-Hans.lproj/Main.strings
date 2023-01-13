@@ -294,7 +294,7 @@
 "dRJ-4n-Yzg.title" = "撤销";
 
 /* Class = "NSMenuItem"; title = "Icon For Mac"; ObjectID = "dny-b3-eQD"; */
-"dny-b3-eQD.title" = "Icon For Mac 💻";
+"dny-b3-eQD.title" = "Icon For Mac";
 
 /* Class = "NSMenuItem"; title = "Icon For iPad"; ObjectID = "g3X-KU-vzg"; */
 "g3X-KU-vzg.title" = "Icon For iPad";
@@ -402,7 +402,7 @@
 "wpr-3q-Mcd.title" = "帮助";
 
 /* Class = "NSMenuItem"; title = "Icon For iPhone"; ObjectID = "x1F-Ib-Apu"; */
-"x1F-Ib-Apu.title" = "Icon For iPhone📱";
+"x1F-Ib-Apu.title" = "Icon For iPhone";
 
 /* Class = "NSMenuItem"; title = "Copy"; ObjectID = "x3v-GG-iWU"; */
 "x3v-GG-iWU.title" = "拷贝";

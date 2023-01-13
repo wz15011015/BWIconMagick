@@ -736,15 +736,15 @@
                                 </textFieldCell>
                             </textField>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ikk-Pl-CTC">
-                                <rect key="frame" x="34" y="242" width="153" height="25"/>
-                                <popUpButtonCell key="cell" type="push" title="Icon For iPhone📱" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="x1F-Ib-Apu" id="CPa-sO-Yit">
+                                <rect key="frame" x="34" y="242" width="154" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="Icon For iPhone" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="x1F-Ib-Apu" id="CPa-sO-Yit">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="wKq-qs-Ifq">
                                         <items>
-                                            <menuItem title="Icon For iPhone📱" state="on" id="x1F-Ib-Apu"/>
-                                            <menuItem title="Icon For iPad" id="g3X-KU-vzg"/>
-                                            <menuItem title="Icon For Mac💻" id="dny-b3-eQD"/>
+                                            <menuItem title="Icon For iPhone" state="on" image="menu_iPhone_icon" id="x1F-Ib-Apu"/>
+                                            <menuItem title="Icon For iPad" image="menu_iPad_icon" id="g3X-KU-vzg"/>
+                                            <menuItem title="Icon For Mac" image="menu_Mac_icon" id="dny-b3-eQD"/>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
@@ -824,5 +824,8 @@
     </scenes>
     <resources>
         <image name="add" width="1024" height="1024"/>
+        <image name="menu_Mac_icon" width="16" height="16"/>
+        <image name="menu_iPad_icon" width="16" height="16"/>
+        <image name="menu_iPhone_icon" width="16" height="16"/>
     </resources>
 </document>
