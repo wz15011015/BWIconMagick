@@ -44,6 +44,10 @@ class BWIcon {
         // 针对 83.5 的处理
         if size == 83.5 {
             sizeString = "83.5"
+        } else if size == 43.5 {
+            sizeString = "43.5"
+        } else if size == 27.5 {
+            sizeString = "27.5"
         }
         return sizeString
     }
@@ -93,11 +97,12 @@ class BWIcon {
 extension BWIcon {
     
     /// 从plist文件加载图标数据
-    class func loadIcons() -> ([BWIcon], [BWIcon], [BWIcon]) {
+    class func loadIcons() -> ([BWIcon], [BWIcon], [BWIcon], [BWIcon]) {
         var iPhoneIcons = [BWIcon]()
         var iPadIcons = [BWIcon]()
         var MacIcons = [BWIcon]()
-        var icons = (iPhoneIcons, iPadIcons, MacIcons)
+        var WatchIcons = [BWIcon]()
+        var icons = (iPhoneIcons, iPadIcons, MacIcons, WatchIcons)
         
         /**
         * try的含义:
@@ -143,7 +148,12 @@ extension BWIcon {
                 MacIcons.append(BWIcon(iconInfo: iconInfo))
             }
         }
-        icons = (iPhoneIcons, iPadIcons, MacIcons)
+        if let icons = dict["Watch"] as? [[String : Any]] {
+            icons.forEach { (iconInfo) in
+                WatchIcons.append(BWIcon(iconInfo: iconInfo))
+            }
+        }
+        icons = (iPhoneIcons, iPadIcons, MacIcons, WatchIcons)
         
         return icons
     }

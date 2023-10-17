@@ -13,6 +13,7 @@ enum BWIconType {
     case iPhone
     case iPad
     case Mac
+    case Watch
 }
 
 
@@ -32,9 +33,6 @@ private let TypeImageViewW: CGFloat = 36.0
 private let TypeImageViewBottomSpace: CGFloat = 8.0
 /// 类型名称的高
 private let TypeNameLabelH: CGFloat = 18.0
-
-/// 视图的高度
-let BWIconsViewH: CGFloat = ((IconImageViewW * 2) + (IconImageViewSpaceVertical * 2) + TypeImageViewW + TypeImageViewBottomSpace)
 
 
 class BWIconsView: NSView {
@@ -80,7 +78,11 @@ class BWIconsView: NSView {
     }
     
     /// 图标类型
-    var iconType: BWIconType = .iPhone
+    var iconType: BWIconType = .iPhone {
+        didSet {
+            layout()
+        }
+    }
     
     /// 图标点击事件
     var iconTapHandler: ((_ icon: BWIcon) -> ())?
@@ -114,12 +116,59 @@ class BWIconsView: NSView {
     @objc func saveEvent() {
         iconSaveHandler?(iconType)
     }
+    
+    
+    // MARK: Tools
+    
+    /// 计算视图整体高度
+    /// - Parameter iconType: 视图图标类型
+    /// - Returns: 高度
+    class func calcViewHeight(with iconType: BWIconType) -> CGFloat {
+        var row = 2.0 // 行数
+        switch iconType {
+            case .iPhone:
+                row = 4.0
+            case .Watch:
+                row = 4.0
+            default:
+                row = 2.0
+        }
+        let height = ((IconImageViewW * row) + (IconImageViewSpaceVertical * row) + TypeImageViewW + TypeImageViewBottomSpace)
+        return height
+    }
 }
 
 
 // MARK: - UI
 
 extension BWIconsView {
+    
+    override func layout() {
+        super.layout()
+        
+        // 2行 5列
+        var row = 2.0
+        let column = 5.0
+        switch iconType {
+            case .iPhone:
+                row = 4.0
+            case .Watch:
+                row = 4.0
+            default:
+                row = 2.0
+        }
+        let iconViewW = (IconImageViewW * column) + (IconImageViewSpaceHorizontal * (column - 1))
+        let iconViewH = (IconImageViewW * row) + (IconImageViewSpaceVertical * row)
+        // 视图高度
+        let viewHeight = BWIconsView.calcViewHeight(with: iconType)
+        
+        iconView.frame = CGRect(x: 0, y: 0, width: iconViewW, height: iconViewH)
+        saveButton.frame = CGRect(x: iconViewW + 50, y: (iconViewH - 32) / 2, width: 70, height: 32)
+        
+        // 类型图片&名称
+        typeImageView.frame = CGRect(x: 0, y: viewHeight - TypeImageViewW, width: TypeImageViewW, height: TypeImageViewW)
+        typeNameLabel.frame = CGRect(x: TypeImageViewW + 5, y: typeImageView.frame.minY + (TypeImageViewW - TypeNameLabelH) * 0.5, width: 80.0, height: TypeNameLabelH)
+    }
     
     private func setupUI() {
         saveButton.target = self
@@ -128,16 +177,6 @@ extension BWIconsView {
         addSubview(saveButton)
         addSubview(typeImageView)
         addSubview(typeNameLabel)
-        
-        // 2行 5列
-        let iconViewW = (IconImageViewW * 5) + (IconImageViewSpaceHorizontal * 4)
-        let iconViewH = (IconImageViewW * 2) + (IconImageViewSpaceVertical * 2)
-        iconView.frame = CGRect(x: 0, y: 0, width: iconViewW, height: iconViewH)
-        saveButton.frame = CGRect(x: iconViewW + 50, y: (iconViewH - 32) / 2, width: 70, height: 32)
-        
-        // 类型图片&名称
-        typeImageView.frame = CGRect(x: 0, y: BWIconsViewH - TypeImageViewW, width: TypeImageViewW, height: TypeImageViewW)
-        typeNameLabel.frame = CGRect(x: TypeImageViewW + 5, y: typeImageView.frame.minY + (TypeImageViewW - TypeNameLabelH) * 0.5, width: 80.0, height: TypeNameLabelH)
     }
     
     /// 添加图标视图
@@ -201,6 +240,9 @@ extension BWIconsView {
             case .Mac:
                 typeImageView.image = NSImage(named: "type_Mac_icon")
                 typeNameLabel.string = "Mac"
+            case .Watch:
+                typeImageView.image = NSImage(named: "type_Watch_icon")
+                typeNameLabel.string = "Watch"
         }
         
         guard let icons = icons else { return }

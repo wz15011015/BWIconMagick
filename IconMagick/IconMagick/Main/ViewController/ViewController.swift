@@ -31,63 +31,63 @@ class ViewController: NSViewController {
          * Icon For iPhone:
          *
          *  iPhone Notification (iOS 7 - 13)
-         *  20pt :  app_icon_iPhone_20x20@2x.png      40 x 40 px
-         *       app_icon_iPhone_20x20@3x.png      60 x 60 px
+         *  20pt : app_icon_iPhone_20x20@2x.png      40 x 40 px
+         *         app_icon_iPhone_20x20@3x.png      60 x 60 px
          *
          *  iPhone Settings (iOS 7 - 13)
-         *  29pt :  app_icon_iPhone_29x29@2x.png      58 x 58 px
-         *       app_icon_iPhone_29x29@3x.png      87 x 87 px
+         *  29pt : app_icon_iPhone_29x29@2x.png      58 x 58 px
+         *         app_icon_iPhone_29x29@3x.png      87 x 87 px
          *
          *  iPhone Spotlight (iOS 7 - 13)
-         *  40pt :  app_icon_iPhone_40x40@2x.png      80 x 80 px
-         *       app_icon_iPhone_40x40@3x.png      120 x 120 px
+         *  40pt : app_icon_iPhone_40x40@2x.png      80 x 80 px
+         *         app_icon_iPhone_40x40@3x.png      120 x 120 px
          *
          *  iPhone App (iOS 7 - 13)
-         *  60pt :  app_icon_iPhone_60x60@2x.png      120 x 120 px
-         *       app_icon_iPhone_60x60@3x.png      180 x 180 px
+         *  60pt : app_icon_iPhone_60x60@2x.png      120 x 120 px
+         *         app_icon_iPhone_60x60@3x.png      180 x 180 px
          *
          *  AppStore:
-         *  1024pt: app_icon_AppStore_1024x1024.png      1024 x 1024 px
+         *  1024pt: app_icon_AppStore_1024x1024.png  1024 x 1024 px
          *
          *
          * Icon For iPad:
          *
          *  iPad Notification (iOS 7 - 13)
-         *  20pt :  app_icon_iPad_20x20.png               20 x 20 px
-         *       app_icon_iPad_20x20@2x.png       40 x 40 px
+         *  20pt : app_icon_iPad_20x20.png           20 x 20 px
+         *         app_icon_iPad_20x20@2x.png        40 x 40 px
          *
          *  iPad Settings (iOS 7 - 13)
-         *  29pt :  app_icon_iPad_29x29.png                29 x 29 px
-         *       app_icon_iPad_29x29@2x.png        58 x 58 px
+         *  29pt : app_icon_iPad_29x29.png           29 x 29 px
+         *         app_icon_iPad_29x29@2x.png        58 x 58 px
          *
          *  iPad Spotlight (iOS 7 - 13)
-         *  40pt :  app_icon_iPad_40x40.png                40 x 40 px
-         *       app_icon_iPad_40x40@2x.png        80 x 80 px
+         *  40pt : app_icon_iPad_40x40.png           40 x 40 px
+         *         app_icon_iPad_40x40@2x.png        80 x 80 px
          *
          *  iPad App (iOS 7 - 13)
-         *  76pt :  app_icon_iPad_76x76.png                76 x 76 px
-         *       app_icon_iPad_76x76@2x.png        152 x 152 px
+         *  76pt : app_icon_iPad_76x76.png           76 x 76 px
+         *         app_icon_iPad_76x76@2x.png        152 x 152 px
          *
          *  iPad Pro App (iOS 9 - 13)
-         *  83.5pt :  app_icon_iPad_83.5x83.5@2x.png      167 x 167 px
+         *  83.5pt :  app_icon_iPad_83.5x83.5@2x.png 167 x 167 px
          *
          *
          * Icon For Mac:
          *
-         *  16pt :  app_icon_Mac_16x16.png                     16 x 16 px
-         *       app_icon_Mac_16x16@2x.png              32 x 32 px
+         *  16pt  : app_icon_Mac_16x16.png           16 x 16 px
+         *          app_icon_Mac_16x16@2x.png        32 x 32 px
          *
-         *  32pt :  app_icon_Mac_32x32.png                      32 x 32 px
-         *       app_icon_Mac_32x32@2x.png              64 x 64 px
+         *  32pt  : app_icon_Mac_32x32.png           32 x 32 px
+         *          app_icon_Mac_32x32@2x.png        64 x 64 px
          *
-         *  128pt :  app_icon_Mac_128x128.png               128 x 128 px
-         *        app_icon_Mac_128x128@2x.png        256 x 256 px
+         *  128pt : app_icon_Mac_128x128.png         128 x 128 px
+         *          app_icon_Mac_128x128@2x.png      256 x 256 px
          *
-         *  256pt :  app_icon_Mac_256x256.png                256 x 256 px
-         *        app_icon_Mac_256x256@2x.png        512 x 512 px
+         *  256pt : app_icon_Mac_256x256.png         256 x 256 px
+         *          app_icon_Mac_256x256@2x.png      512 x 512 px
          *
-         *  512pt :  app_icon_Mac_512x512.png                512 x 512 px
-         *        app_icon_Mac_512x512@2x.png        1024 x 1024 px
+         *  512pt : app_icon_Mac_512x512.png         512 x 512 px
+         *          app_icon_Mac_512x512@2x.png      1024 x 1024 px
          *
          */
         
@@ -119,9 +119,9 @@ extension ViewController {
     private func setupData() {
         // 获取图标数据
         let icons = BWIcon.loadIcons()
-        dataArr = [icons.0, icons.1, icons.2]
+        dataArr = [icons.0, icons.1, icons.2, icons.3]
         
-        iconTypeArr = [.iPhone, .iPad, .Mac]
+        iconTypeArr = [.iPhone, .iPad, .Mac, .Watch]
     }
     
     private func setupUI() {
@@ -212,6 +212,8 @@ extension ViewController {
                 icons = dataArr?[1]
             case 3:
                 icons = dataArr?[2]
+            case 4:
+                icons = dataArr?[3]
             default: ()
         }
         icons?.forEach({ (icon) in
@@ -233,9 +235,12 @@ extension ViewController {
             case .iPad:
                 folderName = "IconMagick-iPad-Icons"
                 tempIcons = dataArr?[1]
-            default:
+            case .Mac:
                 folderName = "IconMagick-Mac-Icons"
                 tempIcons = dataArr?[2]
+            default:
+                folderName = "IconMagick-Watch-Icons"
+                tempIcons = dataArr?[3]
         }
         
         guard let icons = tempIcons else {
@@ -361,7 +366,8 @@ extension ViewController: NSTableViewDelegate, NSTableViewDataSource {
     }
     
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
-        return BWIconsViewH
+        let iconType = iconTypeArr[row]
+        return BWIconsView.calcViewHeight(with: iconType)
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {

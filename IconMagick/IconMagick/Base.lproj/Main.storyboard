@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22154"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -715,19 +715,19 @@
                         <subviews>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="08n-Tt-7ML">
                                 <rect key="frame" x="50" y="300" width="120" height="120"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="6Us-hD-Kwz"/>
-                                    <constraint firstAttribute="width" constant="120" id="Wwi-5G-uY7"/>
-                                </constraints>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="add" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="HyQ-L7-VLW">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="6Us-hD-Kwz"/>
+                                    <constraint firstAttribute="width" constant="120" id="Wwi-5G-uY7"/>
+                                </constraints>
                                 <connections>
                                     <action selector="addIconEvent:" target="XfG-lQ-9wD" id="7NJ-F8-nvB"/>
                                 </connections>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mNv-Kg-eX6">
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mNv-Kg-eX6">
                                 <rect key="frame" x="20" y="275" width="181" height="15"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Require 1024x1024(px/pt) size" id="DdB-dg-x8D">
                                     <font key="font" metaFont="systemMedium" size="12"/>
@@ -745,6 +745,7 @@
                                             <menuItem title="Icon For iPhone" state="on" image="menu_iPhone_icon" id="x1F-Ib-Apu"/>
                                             <menuItem title="Icon For iPad" image="menu_iPad_icon" id="g3X-KU-vzg"/>
                                             <menuItem title="Icon For Mac" image="menu_Mac_icon" id="dny-b3-eQD"/>
+                                            <menuItem title="Icon For Watch" image="menu_Watch_icon" id="atK-E4-q3O"/>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
@@ -825,6 +826,7 @@
     <resources>
         <image name="add" width="1024" height="1024"/>
         <image name="menu_Mac_icon" width="16" height="16"/>
+        <image name="menu_Watch_icon" width="16" height="16"/>
         <image name="menu_iPad_icon" width="16" height="16"/>
         <image name="menu_iPhone_icon" width="16" height="16"/>
     </resources>

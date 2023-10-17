@@ -10,6 +10,66 @@
 			<key>size</key>
 			<integer>20</integer>
 			<key>scale</key>
+			<integer>2</integer>
+			<key>use</key>
+			<string>iPhone Notification</string>
+			<key>system_version</key>
+			<string>iOS 7 - 13</string>
+		</dict>
+		<dict>
+			<key>idiom</key>
+			<string>iPhone</string>
+			<key>size</key>
+			<integer>29</integer>
+			<key>scale</key>
+			<integer>2</integer>
+			<key>use</key>
+			<string>iPhone Settings</string>
+			<key>system_version</key>
+			<string>iOS 7 - 13</string>
+		</dict>
+		<dict>
+			<key>idiom</key>
+			<string>iPhone</string>
+			<key>size</key>
+			<integer>38</integer>
+			<key>scale</key>
+			<integer>2</integer>
+			<key>use</key>
+			<string>iPhone</string>
+			<key>system_version</key>
+			<string>iOS</string>
+		</dict>
+		<dict>
+			<key>idiom</key>
+			<string>iPhone</string>
+			<key>size</key>
+			<integer>40</integer>
+			<key>scale</key>
+			<integer>2</integer>
+			<key>use</key>
+			<string>iPhone Spotlight</string>
+			<key>system_version</key>
+			<string>iOS 7 - 13</string>
+		</dict>
+		<dict>
+			<key>idiom</key>
+			<string>iPhone</string>
+			<key>size</key>
+			<integer>60</integer>
+			<key>scale</key>
+			<integer>2</integer>
+			<key>use</key>
+			<string>iPhone App</string>
+			<key>system_version</key>
+			<string>iOS 7 - 13</string>
+		</dict>
+		<dict>
+			<key>idiom</key>
+			<string>iPhone</string>
+			<key>size</key>
+			<integer>20</integer>
+			<key>scale</key>
 			<integer>3</integer>
 			<key>use</key>
 			<string>iPhone Notification</string>
@@ -27,6 +87,18 @@
 			<string>iPhone Settings</string>
 			<key>system_version</key>
 			<string>iOS 7 - 13</string>
+		</dict>
+		<dict>
+			<key>idiom</key>
+			<string>iPhone</string>
+			<key>size</key>
+			<integer>38</integer>
+			<key>scale</key>
+			<integer>3</integer>
+			<key>use</key>
+			<string>iPhone</string>
+			<key>system_version</key>
+			<string>iOS</string>
 		</dict>
 		<dict>
 			<key>idiom</key>
@@ -51,6 +123,54 @@
 			<string>iPhone App</string>
 			<key>system_version</key>
 			<string>iOS 7 - 13</string>
+		</dict>
+		<dict>
+			<key>idiom</key>
+			<string>iPhone</string>
+			<key>size</key>
+			<integer>64</integer>
+			<key>scale</key>
+			<integer>2</integer>
+			<key>use</key>
+			<string>iPhone</string>
+			<key>system_version</key>
+			<string>iOS</string>
+		</dict>
+		<dict>
+			<key>idiom</key>
+			<string>iPhone</string>
+			<key>size</key>
+			<integer>68</integer>
+			<key>scale</key>
+			<integer>2</integer>
+			<key>use</key>
+			<string>iPhone</string>
+			<key>system_version</key>
+			<string>iOS</string>
+		</dict>
+		<dict>
+			<key>idiom</key>
+			<string>iPhone</string>
+			<key>size</key>
+			<integer>76</integer>
+			<key>scale</key>
+			<integer>2</integer>
+			<key>use</key>
+			<string>iPhone</string>
+			<key>system_version</key>
+			<string>iOS</string>
+		</dict>
+		<dict>
+			<key>idiom</key>
+			<string>iPhone</string>
+			<key>size</key>
+			<real>83.5</real>
+			<key>scale</key>
+			<integer>2</integer>
+			<key>use</key>
+			<string>iPhone</string>
+			<key>system_version</key>
+			<string>iOS</string>
 		</dict>
 		<dict>
 			<key>idiom</key>
@@ -68,49 +188,13 @@
 			<key>idiom</key>
 			<string>iPhone</string>
 			<key>size</key>
-			<integer>20</integer>
+			<integer>64</integer>
 			<key>scale</key>
-			<integer>2</integer>
+			<integer>3</integer>
 			<key>use</key>
-			<string>iPhone Notification</string>
-			<key>system_version</key>
-			<string>iOS 7 - 13</string>
-		</dict>
-		<dict>
-			<key>idiom</key>
 			<string>iPhone</string>
-			<key>size</key>
-			<integer>29</integer>
-			<key>scale</key>
-			<integer>2</integer>
-			<key>use</key>
-			<string>iPhone Settings</string>
 			<key>system_version</key>
-			<string>iOS 7 - 13</string>
-		</dict>
-		<dict>
-			<key>idiom</key>
-			<string>iPhone</string>
-			<key>size</key>
-			<integer>40</integer>
-			<key>scale</key>
-			<integer>2</integer>
-			<key>use</key>
-			<string>iPhone Spotlight</string>
-			<key>system_version</key>
-			<string>iOS 7 - 13</string>
-		</dict>
-		<dict>
-			<key>idiom</key>
-			<string>iPhone</string>
-			<key>size</key>
-			<integer>60</integer>
-			<key>scale</key>
-			<integer>2</integer>
-			<key>use</key>
-			<string>iPhone App</string>
-			<key>system_version</key>
-			<string>iOS 7 - 13</string>
+			<string>iOS</string>
 		</dict>
 	</array>
 	<key>iPad</key>
@@ -121,7 +205,7 @@
 			<key>size</key>
 			<integer>20</integer>
 			<key>scale</key>
-			<integer>2</integer>
+			<integer>1</integer>
 			<key>use</key>
 			<string>iPad Notifications</string>
 			<key>system_version</key>
@@ -133,7 +217,7 @@
 			<key>size</key>
 			<integer>29</integer>
 			<key>scale</key>
-			<integer>2</integer>
+			<integer>1</integer>
 			<key>use</key>
 			<string>iPad Settings</string>
 			<key>system_version</key>
@@ -145,7 +229,7 @@
 			<key>size</key>
 			<integer>40</integer>
 			<key>scale</key>
-			<integer>2</integer>
+			<integer>1</integer>
 			<key>use</key>
 			<string>iPad Spotlight</string>
 			<key>system_version</key>
@@ -157,7 +241,7 @@
 			<key>size</key>
 			<integer>76</integer>
 			<key>scale</key>
-			<integer>2</integer>
+			<integer>1</integer>
 			<key>use</key>
 			<string>iPad App</string>
 			<key>system_version</key>
@@ -181,7 +265,7 @@
 			<key>size</key>
 			<integer>20</integer>
 			<key>scale</key>
-			<integer>1</integer>
+			<integer>2</integer>
 			<key>use</key>
 			<string>iPad Notifications</string>
 			<key>system_version</key>
@@ -193,7 +277,7 @@
 			<key>size</key>
 			<integer>29</integer>
 			<key>scale</key>
-			<integer>1</integer>
+			<integer>2</integer>
 			<key>use</key>
 			<string>iPad Settings</string>
 			<key>system_version</key>
@@ -205,7 +289,7 @@
 			<key>size</key>
 			<integer>40</integer>
 			<key>scale</key>
-			<integer>1</integer>
+			<integer>2</integer>
 			<key>use</key>
 			<string>iPad Spotlight</string>
 			<key>system_version</key>
@@ -217,7 +301,7 @@
 			<key>size</key>
 			<integer>76</integer>
 			<key>scale</key>
-			<integer>1</integer>
+			<integer>2</integer>
 			<key>use</key>
 			<string>iPad App</string>
 			<key>system_version</key>
@@ -232,7 +316,7 @@
 			<key>size</key>
 			<integer>16</integer>
 			<key>scale</key>
-			<integer>2</integer>
+			<integer>1</integer>
 			<key>use</key>
 			<string>Mac</string>
 			<key>system_version</key>
@@ -244,7 +328,7 @@
 			<key>size</key>
 			<integer>32</integer>
 			<key>scale</key>
-			<integer>2</integer>
+			<integer>1</integer>
 			<key>use</key>
 			<string>Mac</string>
 			<key>system_version</key>
@@ -256,7 +340,7 @@
 			<key>size</key>
 			<integer>128</integer>
 			<key>scale</key>
-			<integer>2</integer>
+			<integer>1</integer>
 			<key>use</key>
 			<string>Mac</string>
 			<key>system_version</key>
@@ -268,7 +352,7 @@
 			<key>size</key>
 			<integer>256</integer>
 			<key>scale</key>
-			<integer>2</integer>
+			<integer>1</integer>
 			<key>use</key>
 			<string>Mac</string>
 			<key>system_version</key>
@@ -280,7 +364,7 @@
 			<key>size</key>
 			<integer>512</integer>
 			<key>scale</key>
-			<integer>2</integer>
+			<integer>1</integer>
 			<key>use</key>
 			<string>App Store</string>
 			<key>system_version</key>
@@ -292,7 +376,7 @@
 			<key>size</key>
 			<integer>16</integer>
 			<key>scale</key>
-			<integer>1</integer>
+			<integer>2</integer>
 			<key>use</key>
 			<string>Mac</string>
 			<key>system_version</key>
@@ -304,7 +388,7 @@
 			<key>size</key>
 			<integer>32</integer>
 			<key>scale</key>
-			<integer>1</integer>
+			<integer>2</integer>
 			<key>use</key>
 			<string>Mac</string>
 			<key>system_version</key>
@@ -316,7 +400,7 @@
 			<key>size</key>
 			<integer>128</integer>
 			<key>scale</key>
-			<integer>1</integer>
+			<integer>2</integer>
 			<key>use</key>
 			<string>Mac</string>
 			<key>system_version</key>
@@ -328,7 +412,7 @@
 			<key>size</key>
 			<integer>256</integer>
 			<key>scale</key>
-			<integer>1</integer>
+			<integer>2</integer>
 			<key>use</key>
 			<string>Mac</string>
 			<key>system_version</key>
@@ -340,11 +424,252 @@
 			<key>size</key>
 			<integer>512</integer>
 			<key>scale</key>
-			<integer>1</integer>
+			<integer>2</integer>
 			<key>use</key>
 			<string>Mac</string>
 			<key>system_version</key>
 			<string>macOS</string>
+		</dict>
+	</array>
+	<key>Watch</key>
+	<array>
+		<dict>
+			<key>idiom</key>
+			<string>Watch</string>
+			<key>size</key>
+			<integer>30</integer>
+			<key>scale</key>
+			<integer>2</integer>
+			<key>use</key>
+			<string>Watch</string>
+			<key>system_version</key>
+			<string>watchOS</string>
+		</dict>
+		<dict>
+			<key>idiom</key>
+			<string>Watch</string>
+			<key>size</key>
+			<integer>29</integer>
+			<key>scale</key>
+			<integer>2</integer>
+			<key>use</key>
+			<string>Watch</string>
+			<key>system_version</key>
+			<string>watchOS</string>
+		</dict>
+		<dict>
+			<key>idiom</key>
+			<string>Watch</string>
+			<key>size</key>
+			<real>27.5</real>
+			<key>scale</key>
+			<integer>2</integer>
+			<key>use</key>
+			<string>Watch</string>
+			<key>system_version</key>
+			<string>watchOS</string>
+		</dict>
+		<dict>
+			<key>idiom</key>
+			<string>Watch</string>
+			<key>size</key>
+			<integer>24</integer>
+			<key>scale</key>
+			<integer>2</integer>
+			<key>use</key>
+			<string>Watch</string>
+			<key>system_version</key>
+			<string>watchOS</string>
+		</dict>
+		<dict>
+			<key>idiom</key>
+			<string>Watch</string>
+			<key>size</key>
+			<integer>22</integer>
+			<key>scale</key>
+			<integer>2</integer>
+			<key>use</key>
+			<string>Watch</string>
+			<key>system_version</key>
+			<string>watchOS</string>
+		</dict>
+		<dict>
+			<key>idiom</key>
+			<string>Watch</string>
+			<key>size</key>
+			<integer>44</integer>
+			<key>scale</key>
+			<integer>2</integer>
+			<key>use</key>
+			<string>Watch</string>
+			<key>system_version</key>
+			<string>watchOS</string>
+		</dict>
+		<dict>
+			<key>idiom</key>
+			<string>Watch</string>
+			<key>size</key>
+			<real>43.5</real>
+			<key>scale</key>
+			<integer>2</integer>
+			<key>use</key>
+			<string>Watch</string>
+			<key>system_version</key>
+			<string>watchOS</string>
+		</dict>
+		<dict>
+			<key>idiom</key>
+			<string>Watch</string>
+			<key>size</key>
+			<integer>40</integer>
+			<key>scale</key>
+			<integer>2</integer>
+			<key>use</key>
+			<string>Watch</string>
+			<key>system_version</key>
+			<string>watchOS</string>
+		</dict>
+		<dict>
+			<key>idiom</key>
+			<string>Watch</string>
+			<key>size</key>
+			<integer>33</integer>
+			<key>scale</key>
+			<integer>2</integer>
+			<key>use</key>
+			<string>Watch</string>
+			<key>system_version</key>
+			<string>watchOS</string>
+		</dict>
+		<dict>
+			<key>idiom</key>
+			<string>Watch</string>
+			<key>size</key>
+			<integer>32</integer>
+			<key>scale</key>
+			<integer>2</integer>
+			<key>use</key>
+			<string>Watch</string>
+			<key>system_version</key>
+			<string>watchOS</string>
+		</dict>
+		<dict>
+			<key>idiom</key>
+			<string>Watch</string>
+			<key>size</key>
+			<integer>86</integer>
+			<key>scale</key>
+			<integer>2</integer>
+			<key>use</key>
+			<string>Watch</string>
+			<key>system_version</key>
+			<string>watchOS</string>
+		</dict>
+		<dict>
+			<key>idiom</key>
+			<string>Watch</string>
+			<key>size</key>
+			<integer>54</integer>
+			<key>scale</key>
+			<integer>2</integer>
+			<key>use</key>
+			<string>Watch</string>
+			<key>system_version</key>
+			<string>watchOS</string>
+		</dict>
+		<dict>
+			<key>idiom</key>
+			<string>Watch</string>
+			<key>size</key>
+			<integer>51</integer>
+			<key>scale</key>
+			<integer>2</integer>
+			<key>use</key>
+			<string>Watch</string>
+			<key>system_version</key>
+			<string>watchOS</string>
+		</dict>
+		<dict>
+			<key>idiom</key>
+			<string>Watch</string>
+			<key>size</key>
+			<integer>50</integer>
+			<key>scale</key>
+			<integer>2</integer>
+			<key>use</key>
+			<string>Watch</string>
+			<key>system_version</key>
+			<string>watchOS</string>
+		</dict>
+		<dict>
+			<key>idiom</key>
+			<string>Watch</string>
+			<key>size</key>
+			<integer>46</integer>
+			<key>scale</key>
+			<integer>2</integer>
+			<key>system_version</key>
+			<string>watchOS</string>
+		</dict>
+		<dict>
+			<key>idiom</key>
+			<string>Watch</string>
+			<key>size</key>
+			<integer>1024</integer>
+			<key>scale</key>
+			<integer>1</integer>
+			<key>use</key>
+			<string>Watch</string>
+			<key>system_version</key>
+			<string>watchOS</string>
+		</dict>
+		<dict>
+			<key>idiom</key>
+			<string>Watch</string>
+			<key>size</key>
+			<integer>129</integer>
+			<key>scale</key>
+			<integer>2</integer>
+			<key>use</key>
+			<string>Watch</string>
+			<key>system_version</key>
+			<string>watchOS</string>
+		</dict>
+		<dict>
+			<key>idiom</key>
+			<string>Watch</string>
+			<key>size</key>
+			<integer>117</integer>
+			<key>scale</key>
+			<integer>2</integer>
+			<key>use</key>
+			<string>Watch</string>
+			<key>system_version</key>
+			<string>watchOS</string>
+		</dict>
+		<dict>
+			<key>idiom</key>
+			<string>Watch</string>
+			<key>size</key>
+			<integer>108</integer>
+			<key>scale</key>
+			<integer>2</integer>
+			<key>use</key>
+			<string>Watch</string>
+			<key>system_version</key>
+			<string>watchOS</string>
+		</dict>
+		<dict>
+			<key>idiom</key>
+			<string>Watch</string>
+			<key>size</key>
+			<integer>98</integer>
+			<key>scale</key>
+			<integer>2</integer>
+			<key>use</key>
+			<string>Watch</string>
+			<key>system_version</key>
+			<string>watchOS</string>
 		</dict>
 	</array>
 </dict>
