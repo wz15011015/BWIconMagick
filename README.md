@@ -5,13 +5,13 @@
 
 ## Introduction
 
-Generate icons for iPhone, iPad, Mac.
+Generate icons for iPhone, iPad, Mac, Watch.
 
 
 
 ## Usage
 
-<img src="https://github.com/wz15011015/BWIconMagick/blob/master/Screenshots/IconMagick_Home.png" width="608" height="540">
+<img src="https://github.com/wz15011015/BWIconMagick/blob/master/Screenshots/IconMagick_Home.png" width="610" height="545">
 
 
 
