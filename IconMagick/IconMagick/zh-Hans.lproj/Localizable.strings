@@ -8,6 +8,12 @@
 
 "Click to add template icon" = "点击以添加模板图标";
 
+"Icon For        ↓↓" = "生成图标   ↓↓";
+"Icon For iPad"   = "iPad图标";
+"Icon For iPhone" = "iPhone图标";
+"Icon For Mac"    = "Mac图标";
+"Icon For Watch"  = "Watch图标";
+
 "Meet 1024x1024(px/pt) size" = "满足1024x1024(像素/点)大小";
 
 "Please choose a save path" = "请选择保存路径";

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23504"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -736,18 +736,11 @@
                                 </textFieldCell>
                             </textField>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ikk-Pl-CTC">
-                                <rect key="frame" x="34" y="242" width="154" height="25"/>
-                                <popUpButtonCell key="cell" type="push" title="Icon For iPhone" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="x1F-Ib-Apu" id="CPa-sO-Yit">
+                                <rect key="frame" x="91" y="242" width="39" height="25"/>
+                                <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="CPa-sO-Yit">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="menu"/>
-                                    <menu key="menu" id="wKq-qs-Ifq">
-                                        <items>
-                                            <menuItem title="Icon For iPhone" state="on" image="menu_iPhone_icon" id="x1F-Ib-Apu"/>
-                                            <menuItem title="Icon For iPad" image="menu_iPad_icon" id="g3X-KU-vzg"/>
-                                            <menuItem title="Icon For Mac" image="menu_Mac_icon" id="dny-b3-eQD"/>
-                                            <menuItem title="Icon For Watch" image="menu_Watch_icon" id="atK-E4-q3O"/>
-                                        </items>
-                                    </menu>
+                                    <font key="font" metaFont="message"/>
+                                    <menu key="menu" id="wKq-qs-Ifq"/>
                                 </popUpButtonCell>
                                 <connections>
                                     <action selector="generateIconEvent:" target="XfG-lQ-9wD" id="xDW-Zy-mYD"/>
@@ -825,9 +818,5 @@
     </scenes>
     <resources>
         <image name="add" width="1024" height="1024"/>
-        <image name="menu_Mac_icon" width="16" height="16"/>
-        <image name="menu_Watch_icon" width="16" height="16"/>
-        <image name="menu_iPad_icon" width="16" height="16"/>
-        <image name="menu_iPhone_icon" width="16" height="16"/>
     </resources>
 </document>

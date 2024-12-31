@@ -125,7 +125,38 @@ extension ViewController {
     }
     
     private func setupUI() {
-        generateButton.insertItem(withTitle: "Icon For        ↓↓", at: 0)
+        // 给生成按钮添加菜单选项
+//        generateButton.insertItem(withTitle: NSLocalizedString("Icon For        ↓↓", comment: ""), at: 0)
+        let itemInfos: [[String : String]] = [
+            [
+                "title": NSLocalizedString("Icon For        ↓↓", comment: ""),
+                "image": "",
+            ],
+            [
+                "title": NSLocalizedString("Icon For iPhone", comment: ""),
+                "image": "menu_iPhone_icon",
+            ],
+            [
+                "title": NSLocalizedString("Icon For iPad", comment: ""),
+                "image": "menu_iPad_icon",
+            ],
+            [
+                "title": NSLocalizedString("Icon For Mac", comment: ""),
+                "image": "menu_Mac_icon",
+            ],
+            [
+                "title": NSLocalizedString("Icon For Watch", comment: ""),
+                "image": "menu_Watch_icon",
+            ]
+        ]
+        for info in itemInfos {
+            let item = NSMenuItem()
+            item.title = info["title"] ?? ""
+            if let imageName = info["image"] {
+                item.image = NSImage(named: imageName)
+            }
+            generateButton.menu?.addItem(item)
+        }
         generateButton.selectItem(at: 0)
         
         // 设置按钮的鼠标悬停提示文字
