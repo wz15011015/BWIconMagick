@@ -16,6 +16,7 @@ class ViewController: NSViewController {
     @IBOutlet var hintLabel: NSTextField!
     @IBOutlet var generateButton: NSPopUpButton!
     
+    @IBOutlet var iconScrollView: NSScrollView!
     @IBOutlet var iconTableView: NSTableView!
     @IBOutlet var iconTableColumn: NSTableColumn!
     
@@ -253,6 +254,11 @@ extension ViewController {
         
         // 刷新图标显示
         iconTableView.reloadData()
+        
+        // 滚动NSTableView到指定行，以显示生成的图标
+        if sender.indexOfSelectedItem > 0 {
+            iconTableView.scrollRowToVisible(sender.indexOfSelectedItem - 1)
+        }
     }
 
     /// 导出图标

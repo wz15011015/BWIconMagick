@@ -806,6 +806,7 @@
                     <connections>
                         <outlet property="generateButton" destination="Ikk-Pl-CTC" id="G73-RI-z2g"/>
                         <outlet property="hintLabel" destination="mNv-Kg-eX6" id="pQE-dL-mOP"/>
+                        <outlet property="iconScrollView" destination="VxE-GT-jwL" id="SyF-tP-s6u"/>
                         <outlet property="iconTableColumn" destination="Ann-xk-y5I" id="Yxi-sF-CNN"/>
                         <outlet property="iconTableView" destination="ahN-zW-Chc" id="CCm-Le-lqR"/>
                         <outlet property="templateIconButton" destination="08n-Tt-7ML" id="mbN-hC-jFe"/>
